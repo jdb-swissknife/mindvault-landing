@@ -189,17 +189,17 @@ export default function App() {
           />
           <ToolCard
             icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>}
-            title="Lead Response Bot"
-            desc="Coming soon — AI that responds to every lead in under 60 seconds, 24/7. Join the waitlist."
-            tag="Coming Soon"
-            href="#"
+            title="Lead Response ROI Calculator"
+            desc="AI that responds to every lead in under 60 seconds, 24/7. Join the waitlist."
+            tag="Free Tool"
+            href="#/roi-calculator"
           />
           <ToolCard
             icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>}
-            title="Follow-Up Automator"
-            desc="Coming soon — never lose a lead to a missed follow-up. AI handles the entire sequence."
-            tag="Coming Soon"
-            href="#"
+            title="Follow-Up Sequence Generator"
+            desc="Never lose a lead to a missed follow-up. AI handles the entire sequence."
+            tag="Free Tool"
+            href="#/follow-up-generator"
           />
         </div>
       </section>
@@ -228,7 +228,7 @@ export default function App() {
             <div className="text-center">
               <div className="w-12 h-12 rounded-full bg-navy-500/20 border border-navy-500/40 flex items-center justify-center mx-auto mb-4 text-navy-500 font-bold text-lg">3</div>
               <h3 className="text-lg font-bold mb-2">Get your AI team</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">Lead response, follow-ups, scheduling, customer comms — agents that work 24/7 and get smarter every month.</p>
+              <p className="text-sm text-gray-400 leading-relaxed">Lead response, follow-ups, scheduling, customer comms. Agents that work 24/7 and get smarter every month.</p>
             </div>
           </div>
         </div>
