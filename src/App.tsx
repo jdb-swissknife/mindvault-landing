@@ -148,6 +148,16 @@ export default function App() {
                     className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm bg-white text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent"
                   />
                 </div>
+                <label className="flex items-start gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    className="mt-0.5 rounded border-gray-300 text-navy-500 focus:ring-navy-500"
+                  />
+                  <span className="text-[11px] text-gray-400 leading-relaxed">
+                    I agree to receive emails and text messages from MindVault Studio. Message frequency varies. Reply STOP to unsubscribe. View our <a href="/privacy" target="_blank" className="underline hover:text-navy-500">Privacy Policy</a>.
+                  </span>
+                </label>
                 <button
                   type="submit"
                   disabled={loading}
@@ -155,7 +165,6 @@ export default function App() {
                 >
                   {loading ? 'Sending...' : 'Get Free Tools'}
                 </button>
-                <p className="text-[11px] text-gray-400 text-center">No spam. Unsubscribe anytime. We'll only share useful stuff.</p>
               </form>
             )}
           </div>
