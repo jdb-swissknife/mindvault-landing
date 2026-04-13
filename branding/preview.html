@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><style>
+body { font-family: Inter, system-ui, sans-serif; background: #f5f5f5; padding: 40px; }
+h2 { color: #1a2a6c; margin-top: 40px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; max-width: 900px; margin: 20px 0; }
+.card { background: white; border-radius: 12px; padding: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-height: 180px; }
+.card.dark { background: #1a2a6c; }
+.card.gradient { background: linear-gradient(135deg, #1a2a6c, #4f6ef7); }
+img { max-width: 100%; height: auto; }
+.label { text-align: center; margin-top: 8px; font-size: 14px; color: #64748b; }
+</style></head><body>
+<h1>MindVault Shield v2</h1>
+
+<h2>Icon</h2>
+<div class="grid">
+  <div><div class="card"><img src="logo-2-icon.svg" width="160"></div><div class="label">White bg</div></div>
+  <div><div class="card dark"><img src="logo-2-icon.svg" width="160"></div><div class="label">Navy bg</div></div>
+  <div><div class="card gradient"><img src="logo-2-icon.svg" width="160"></div><div class="label">Gradient bg</div></div>
+</div>
+
+<h2>Full Logo</h2>
+<div class="grid">
+  <div><div class="card"><img src="logo-2-full.svg" width="400"></div><div class="label">White bg</div></div>
+  <div><div class="card dark"><img src="logo-2-full.svg" width="400"></div><div class="label">Navy bg</div></div>
+  <div><div class="card"><img src="logo-2-icon.svg" width="48"></div><div class="label">Favicon size</div></div>
+</div>
+</body></html>

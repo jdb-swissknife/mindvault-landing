@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f0f4ff;
+  --color-navy-100: #dbe4ff;
+  --color-navy-500: #4f6ef7;
+  --color-navy-600: #3b5bdb;
+  --color-navy-700: #364fc7;
+  --color-navy-800: #2a3eb1;
+  --color-navy-900: #1a2a6c;
+  --color-navy-950: #0f1a4a;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+}

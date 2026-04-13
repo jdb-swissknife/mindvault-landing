@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- MV Shield v2 - Sharper, Bolder, Trust -->
+
+  <!-- Outer shield - bolder, sharper -->
+  <path d="M100,8 L180,48 L180,115 Q180,168 100,195 Q20,168 20,115 L20,48 Z" 
+        fill="#1a2a6c" stroke="#1a2a6c" stroke-width="6" stroke-linejoin="miter"/>
+
+  <!-- Inner border - double outline effect -->
+  <path d="M100,22 L168,56 L168,112 Q168,158 100,182 Q32,158 32,112 L32,56 Z" 
+        fill="none" stroke="#4f6ef7" stroke-width="2.5" stroke-linejoin="miter"/>
+
+  <!-- Second inner border for depth -->
+  <path d="M100,34 L158,62 L158,109 Q158,148 100,170 Q42,148 42,109 L42,62 Z" 
+        fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-linejoin="miter"/>
+
+  <!-- Horizontal accent line across shield -->
+  <line x1="36" y1="75" x2="164" y2="75" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- M letter - bold, outlined -->
+  <path d="M52,138 L52,80 L77,110 L100,80 L100,138" 
+        fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter"/>
+  <!-- M inner outline -->
+  <path d="M52,138 L52,80 L77,110 L100,80 L100,138" 
+        fill="none" stroke="#1a2a6c" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- V letter - bold, outlined, accent color -->
+  <path d="M100,80 L126,122 L152,80" 
+        fill="none" stroke="#4f6ef7" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter"/>
+  <!-- V inner outline -->
+  <path d="M100,80 L126,122 L152,80" 
+        fill="none" stroke="#1a2a6c" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Bottom point accent -->
+  <path d="M92,190 L100,195 L108,190" fill="none" stroke="#4f6ef7" stroke-width="2" stroke-linecap="round"/>
+</svg>
