@@ -184,6 +184,11 @@ export default function FollowUpGen() {
               </div>
             ))}
 
+            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-navy-900 mb-1">MindVault Pro</p>
+              <p className="text-xs text-navy-700/70">Pro members get premium features: white label branding on all sequences, custom industry templates, and automated delivery so you never lift a finger.</p>
+            </div>
+
             <div className="pt-4 text-center space-y-3">
               <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
                 className="block w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 transition-colors">
