@@ -24,11 +24,17 @@ function Logo({ className = '' }: { className?: string }) {
 }
 
 // ── Free Tool Card ─────────────────────────────────────
-function ToolCard({ icon, title, desc, tag, href }: {
-  icon: React.ReactNode; title: string; desc: string; tag: string; href: string
+function ToolCard({ icon, title, desc, tag, href, gated }: {
+  icon: React.ReactNode; title: string; desc: string; tag: string; href: string; gated?: boolean
 }) {
+  const handleClick = (e: React.MouseEvent) => {
+    if (gated) {
+      e.preventDefault()
+      document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer"
+    <a href={gated ? '#' : href} onClick={handleClick} target={gated ? undefined : '_blank'} rel={gated ? undefined : 'noopener noreferrer'}
       className="group block bg-white rounded-xl border border-gray-200 p-6 hover:border-navy-500 hover:shadow-lg hover:shadow-navy-500/5 transition-all duration-200"
     >
       <div className="flex items-center gap-3 mb-3">
@@ -112,7 +118,7 @@ export default function App() {
           </div>
 
           {/* Email capture */}
-          <div className="mt-10 max-w-md">
+          <div id="lead-capture" className="mt-10 max-w-md">
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-xl p-5">
                 <div className="flex items-center gap-2 mb-1">
@@ -169,7 +175,8 @@ export default function App() {
             title="Digital Business Card"
             desc="Create a professional digital card with QR code in 30 seconds. Download instantly. Share anywhere."
             tag="Popular"
-            href="https://bizcard.mindvaultstudio.net"
+            href={submitted ? "https://bizcard.mindvaultstudio.net" : "#"}
+            gated={!submitted}
           />
           <ToolCard
             icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>}
@@ -227,7 +234,8 @@ export default function App() {
           Free audit. Free tools. See the results before you pay a dime.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="https://bizcard.mindvaultstudio.net"
+          <a href={submitted ? "https://bizcard.mindvaultstudio.net" : "#lead-capture"}
+            onClick={submitted ? undefined : (e) => { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) }}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-navy-500 text-white font-semibold text-sm hover:bg-navy-600 transition-colors">
             Free Business Card
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
