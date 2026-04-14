@@ -73,14 +73,14 @@ export default function App() {
             <span className="text-stone-400"> Not tomorrow.<br />Not Monday. Now.</span>
           </h1>
           <p className="mt-6 text-lg text-stone-400 max-w-xl leading-relaxed">
-            While you're on the roof, in the field, or running crews, your leads are getting qualified, followed up with, and scheduled. You never miss one.
+            While you're on the roof, in the field, or running crews, AI handles your leads. They get qualified, followed up with, and scheduled automatically. You never miss one.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
               Book a Call with John
             </a>
-            <a href="#free-tools"
+            <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg border border-stone-500 text-stone-300 font-semibold text-sm hover:border-stone-400 hover:text-white transition-colors">
               Try Free Tools
             </a>
@@ -144,7 +144,7 @@ export default function App() {
                 <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-1">WEEK 2</p>
                 <h3 className="text-xl font-bold mb-2">We build your system</h3>
                 <p className="text-stone-400 text-sm leading-relaxed">
-                  Every lead gets an instant response. Every estimate gets a follow-up sequence. Every missed call gets a text back. Custom to your business, your scripts, your pricing.
+                  Every lead gets an instant response from your AI. Every estimate gets a follow-up sequence. Every missed call gets a text back. Custom to your business, your scripts, your pricing.
                 </p>
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function App() {
             Stop losing jobs you already earned.
           </h2>
           <p className="text-stone-400 max-w-md mx-auto mb-8">
-            Free audit. Free tools. See the results before you pay a dime.
+            Free audit. Free tools. AI that works from day one. See the results before you pay a dime.
           </p>
           <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
