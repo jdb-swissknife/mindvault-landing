@@ -311,6 +311,9 @@
       </div>
 
       <div class="notif-area">
+        <div class="notif" id="n0">
+          <div style="font-size:16px;font-weight:800;text-align:center;padding:20px 0;color:#fff;">Every lead handled.<br>Zero missed.</div>
+        </div>
         <div class="notif" id="n1">
           <div class="notif-time">2:47 PM</div>
           <div class="notif-title">New lead: Dave Park</div>
@@ -342,11 +345,6 @@
     </div>
   </div>
 
-  <div class="overlay-text" id="overlay">
-    <p>While you were on the roof</p>
-    <h2>Every lead handled. Zero missed.</h2>
-  </div>
-
   <div class="end-card" id="endCard">
     <div class="tagline">
       Your leads get a response<br>in 90 seconds.
@@ -358,32 +356,32 @@
 </div>
 
 <script>
+  const n0 = document.getElementById('n0');
   const n1 = document.getElementById('n1');
   const n2 = document.getElementById('n2');
   const n3 = document.getElementById('n3');
   const ding = document.getElementById('ding');
-  const overlay = document.getElementById('overlay');
   const endCard = document.getElementById('endCard');
   const timeCtx = document.getElementById('timeCtx');
 
   // Timeline
   setTimeout(() => { timeCtx.classList.add('visible'); }, 800);
 
+  // Statement appears first
+  setTimeout(() => {
+    n0.classList.add('visible');
+  }, 1500);
+
   // Lead comes in
   setTimeout(() => {
     ding.classList.add('pop');
     n1.classList.add('visible');
-  }, 2000);
-
-  // Result hits -- right after the first lead
-  setTimeout(() => {
-    overlay.classList.add('visible');
   }, 3500);
 
   // AI responds
   setTimeout(() => {
     n2.classList.add('visible');
-  }, 5000);
+  }, 6000);
 
   // Booked
   setTimeout(() => {
@@ -391,12 +389,12 @@
     void ding.offsetWidth;
     ding.classList.add('pop');
     n3.classList.add('visible');
-  }, 7500);
+  }, 8500);
 
   // End card
   setTimeout(() => {
     endCard.classList.add('visible');
-  }, 12000);
+  }, 13000);
 </script>
 
 </body>
