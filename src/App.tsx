@@ -188,19 +188,32 @@ export default function App() {
             gated={!submitted}
           />
           <ToolCard
-            icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>}
+            icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83\"/></svg>}
             title="Lead Response ROI Calculator"
-            desc="AI that responds to every lead in under 60 seconds, 24/7. Join the waitlist."
+            desc="See exactly how much revenue slow lead response costs you every month."
             tag="Free Tool"
             href="#/roi-calculator"
           />
           <ToolCard
-            icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>}
+            icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>}
             title="Follow-Up Sequence Generator"
-            desc="Never lose a lead to a missed follow-up. AI handles the entire sequence."
+            desc="Get a ready-to-use 5-step follow-up sequence for your industry. Copy, paste, send."
             tag="Free Tool"
             href="#/follow-up-generator"
           />
+        </div>
+      </section>
+
+      {/* ── Urgency Banner ── */}
+      <section className="bg-amber-50 border-y border-amber-200">
+        <div className="max-w-5xl mx-auto px-4 py-6 text-center">
+          <div className="inline-flex items-center gap-2 mb-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span className="text-sm font-bold text-amber-800">MORE TOOLS LAUNCHING SOON</span>
+          </div>
+          <p className="text-sm text-amber-700 max-w-lg mx-auto">
+            We continuously do the hard work so it is seamless and simple for you to grow your company. Free for 30 days, then members only.
+          </p>
         </div>
       </section>
 
