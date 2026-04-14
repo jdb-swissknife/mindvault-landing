@@ -244,7 +244,7 @@ export default function App() {
             Grab them. No catch.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
-            Built for service businesses. Drop your email to unlock all three. See what we're about before you ever talk to us.
+            Built for service businesses. Drop your email to unlock all four. See what we're about before you ever talk to us.
           </p>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -268,6 +268,13 @@ export default function App() {
               <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Follow-Up Sequence Generator</h3>
               <p className="text-sm text-stone-600 leading-relaxed">5-step follow-up sequence for your industry. Copy, paste, send.</p>
+            </a>
+            {/* Review Request Generator */}
+            <a href={submitted ? "#/review-request-generator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">New</span>
+              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Review Request Generator</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your AI Foreman sends them automatically when jobs complete.</p>
             </a>
           </div>
 

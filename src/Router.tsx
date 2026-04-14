@@ -6,6 +6,7 @@ import SolarSavingsCalc from './tools/SolarSavingsCalc'
 import OnboardingChecklist from './tools/OnboardingChecklist'
 import GrowthScorecard from './tools/GrowthScorecard'
 import EstimateTracker from './tools/EstimateTracker'
+import ReviewRequestGen from './tools/ReviewRequestGen'
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
         <Route path="/onboarding-checklist" element={<OnboardingChecklist />} />
         <Route path="/growth-scorecard" element={<GrowthScorecard />} />
         <Route path="/estimate-tracker" element={<EstimateTracker />} />
+        <Route path="/review-request-generator" element={<ReviewRequestGen />} />
       </Routes>
     </HashRouter>
   )
