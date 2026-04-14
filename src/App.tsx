@@ -131,6 +131,25 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Demo ── */}
+      <section className="bg-charcoal-900 border-b border-charcoal-700">
+        <div className="max-w-5xl mx-auto px-4 py-16 text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-8">SEE IT IN ACTION</p>
+          <div className="mx-auto" style={{ maxWidth: '360px' }}>
+            <iframe
+              src="https://mindvaultstudio.net/demo.html"
+              title="MindVault Demo"
+              width="100%"
+              height="680"
+              frameBorder="0"
+              allowFullScreen
+              style={{ borderRadius: '8px' }}
+            />
+          </div>
+          <p className="text-xs text-stone-500 mt-4">20 seconds. No sound needed.</p>
+        </div>
+      </section>
+
       {/* ── The Problem ── */}
       <section className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
