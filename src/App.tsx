@@ -27,7 +27,7 @@ function Logo({ className = '' }: { className?: string }) {
 export default function App() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(() => localStorage.getItem('mv_submitted') === 'true')
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,9 +42,11 @@ export default function App() {
         if (error) throw error
       }
       setSubmitted(true)
+      localStorage.setItem('mv_submitted', 'true')
     } catch (err) {
       console.error('Lead capture failed:', err)
       setSubmitted(true)
+      localStorage.setItem('mv_submitted', 'true')
     } finally {
       setLoading(false)
     }
