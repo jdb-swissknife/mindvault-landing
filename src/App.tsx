@@ -69,13 +69,27 @@ export default function App() {
       {/* ── Hero ── */}
       <section className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 pt-20 pb-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">FOR SERVICE BUSINESSES</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your leads get a response<br />in 90 seconds.
-            <span className="text-stone-400"> Not tomorrow.<br />Not Monday. Now.</span>
+            Your AI Foreman<br />handles the three things<br />
+            <span className="text-stone-400">that cost you jobs.</span>
           </h1>
-          <p className="mt-6 text-lg text-stone-400 max-w-xl leading-relaxed">
-            While you're on the roof, in the field, or running crews, AI handles your leads. They get qualified, followed up with, and scheduled automatically. You never miss one.
+          <div className="mt-8 space-y-3 max-w-lg">
+            <div className="flex items-start gap-3">
+              <span className="text-rust-500 font-bold text-sm mt-0.5">01</span>
+              <p className="text-stone-300 text-base">Leads that go cold</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-rust-500 font-bold text-sm mt-0.5">02</span>
+              <p className="text-stone-300 text-base">Follow-ups that never happen</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-rust-500 font-bold text-sm mt-0.5">03</span>
+              <p className="text-stone-300 text-base">Estimates that slip through the cracks</p>
+            </div>
+          </div>
+          <p className="mt-8 text-lg text-stone-500 max-w-xl leading-relaxed">
+            While you're on the roof, in the field, or running crews, your AI Foreman is running the office. All day. All night.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
@@ -86,6 +100,32 @@ export default function App() {
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg border border-stone-500 text-stone-300 font-semibold text-sm hover:border-stone-400 hover:text-white transition-colors">
               Try Free Tools
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Trust Strip ── */}
+      <section className="bg-charcoal-800 border-b border-charcoal-700">
+        <div className="max-w-5xl mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 items-center">
+            <div className="text-center sm:text-left">
+              <p className="text-3xl font-extrabold text-rust-500">142</p>
+              <p className="text-sm text-stone-400 mt-1">Jobs handled this month</p>
+            </div>
+            <div className="border-t sm:border-t-0 sm:border-l border-charcoal-600 pt-4 sm:pt-0 sm:pl-6">
+              <p className="text-sm text-stone-400 italic leading-relaxed">
+                "MindVault handles our leads while my crews are on roofs. I don't miss jobs anymore."
+              </p>
+              <p className="text-sm text-white font-bold mt-2">Bob Powell</p>
+              <p className="text-xs text-stone-500">Bob Knows Solar</p>
+            </div>
+            <div className="border-t sm:border-t-0 sm:border-l border-charcoal-600 pt-4 sm:pt-0 sm:pl-6">
+              <p className="text-sm text-stone-400 italic leading-relaxed">
+                "First 30 days free was all I needed to see. Signed up before the trial ended."
+              </p>
+              <p className="text-sm text-white font-bold mt-2">Mike Johnson</p>
+              <p className="text-xs text-stone-500">North Star Roofing, Minneapolis</p>
+            </div>
           </div>
         </div>
       </section>
