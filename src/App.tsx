@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from './lib/supabase'
 
 // ── Logo ──────────────────────────────────────────────
@@ -25,6 +25,22 @@ function Logo({ className = '' }: { className?: string }) {
 
 // ── Main App ──────────────────────────────────────────
 export default function App() {
+  const demoRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    const frame = demoRef.current
+    if (!frame) return
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          frame.contentWindow?.postMessage('startDemo', '*')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.3 })
+    observer.observe(frame)
+    return () => observer.disconnect()
+  }, [])
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [submitted, setSubmitted] = useState(() => localStorage.getItem('mv_submitted') === 'true')
@@ -137,6 +153,7 @@ export default function App() {
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-8">SEE IT IN ACTION</p>
           <div className="mx-auto" style={{ maxWidth: '360px' }}>
             <iframe
+              ref={demoRef}
               src="https://mindvaultstudio.net/demo.html"
               title="MindVault Demo"
               width="100%"
