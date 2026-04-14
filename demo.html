@@ -185,7 +185,7 @@
   /* Bottom overlay text */
   .overlay-text {
     position: absolute;
-    bottom: 80px;
+    top: 60px;
     left: 0;
     right: 0;
     text-align: center;
@@ -344,7 +344,7 @@
 
   <div class="overlay-text" id="overlay">
     <p>While you were on the roof</p>
-    <h2>3 leads handled. Zero missed.</h2>
+    <h2>Every lead handled. Zero missed.</h2>
   </div>
 
   <div class="end-card" id="endCard">
@@ -373,12 +373,17 @@
   setTimeout(() => {
     ding.classList.add('pop');
     n1.classList.add('visible');
-  }, 2500);
+  }, 2000);
+
+  // Result hits -- right after the first lead
+  setTimeout(() => {
+    overlay.classList.add('visible');
+  }, 3500);
 
   // AI responds
   setTimeout(() => {
     n2.classList.add('visible');
-  }, 5500);
+  }, 5000);
 
   // Booked
   setTimeout(() => {
@@ -386,17 +391,12 @@
     void ding.offsetWidth;
     ding.classList.add('pop');
     n3.classList.add('visible');
-  }, 9000);
-
-  // Overlay text
-  setTimeout(() => {
-    overlay.classList.add('visible');
-  }, 12000);
+  }, 7500);
 
   // End card
   setTimeout(() => {
     endCard.classList.add('visible');
-  }, 15500);
+  }, 12000);
 </script>
 
 </body>
