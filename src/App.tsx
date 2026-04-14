@@ -72,8 +72,8 @@ export default function App() {
           <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Service Businesses</p>
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your AI Foreman<br />handles the three things<br />
-            <span className="text-stone-400">that cost you jobs.</span>
+            Your operations.<br />Handled. 24/7.
+            <span className="text-stone-400"> While you focus on the work.</span>
           </h1>
           <div className="mt-8 space-y-3 max-w-lg">
             <div className="flex items-start gap-3">
