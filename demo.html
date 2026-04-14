@@ -364,37 +364,45 @@
   const endCard = document.getElementById('endCard');
   const timeCtx = document.getElementById('timeCtx');
 
-  // Timeline
-  setTimeout(() => { timeCtx.classList.add('visible'); }, 800);
+  // Wait for parent to tell us we're visible
+  function startTimeline() {
+    setTimeout(() => { timeCtx.classList.add('visible'); }, 800);
 
-  // Statement appears first
-  setTimeout(() => {
-    n0.classList.add('visible');
-  }, 1500);
+    // Statement appears first
+    setTimeout(() => { n0.classList.add('visible'); }, 1500);
 
-  // Lead comes in
-  setTimeout(() => {
-    ding.classList.add('pop');
-    n1.classList.add('visible');
-  }, 3500);
+    // Lead comes in
+    setTimeout(() => {
+      ding.classList.add('pop');
+      n1.classList.add('visible');
+    }, 3500);
 
-  // AI responds
-  setTimeout(() => {
-    n2.classList.add('visible');
-  }, 6000);
+    // AI responds
+    setTimeout(() => {
+      n2.classList.add('visible');
+    }, 6000);
 
-  // Booked
-  setTimeout(() => {
-    ding.classList.remove('pop');
-    void ding.offsetWidth;
-    ding.classList.add('pop');
-    n3.classList.add('visible');
-  }, 8500);
+    // Booked
+    setTimeout(() => {
+      ding.classList.remove('pop');
+      void ding.offsetWidth;
+      ding.classList.add('pop');
+      n3.classList.add('visible');
+    }, 8500);
 
-  // End card
-  setTimeout(() => {
-    endCard.classList.add('visible');
-  }, 13000);
+    // End card
+    setTimeout(() => {
+      endCard.classList.add('visible');
+    }, 13000);
+  }
+
+  // Listen for start signal from parent
+  window.addEventListener('message', (e) => {
+    if (e.data === 'startDemo') startTimeline();
+  });
+
+  // Fallback: if opened directly (not in iframe), start immediately
+  if (window === window.top) startTimeline();
 </script>
 
 </body>
