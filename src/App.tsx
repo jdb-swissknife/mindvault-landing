@@ -257,7 +257,7 @@ export default function App() {
             <p className="text-sm font-bold text-onyx mb-3">Get early access to new tools:</p>
             {submitted ? (
               <div className="bg-charcoal-900 rounded-lg p-4 text-center">
-                <p className="text-sm text-white font-medium">You're in. Check your inbox.</p>
+                <p className="text-sm text-white font-bold">You're in!</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
