@@ -182,7 +182,7 @@ export default function App() {
             Grab them. No catch.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
-            Built for service businesses. No signup needed for most. See what we're about before you ever talk to us.
+            Built for service businesses. Drop your email to unlock all three. See what we're about before you ever talk to us.
           </p>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -194,14 +194,14 @@ export default function App() {
               <p className="text-sm text-stone-600 leading-relaxed">Professional card with QR code in 30 seconds. Download, share, done.</p>
             </a>
             {/* ROI Calculator */}
-            <a href="#/roi-calculator"
+            <a href={submitted ? "#/roi-calculator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
               className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
               <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Lead Response ROI Calculator</h3>
               <p className="text-sm text-stone-600 leading-relaxed">See how much money slow response costs you every single month.</p>
             </a>
             {/* Follow-Up Generator */}
-            <a href="#/follow-up-generator"
+            <a href={submitted ? "#/follow-up-generator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
               className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
               <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Follow-Up Sequence Generator</h3>
