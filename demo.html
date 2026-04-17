@@ -66,6 +66,7 @@
 
   .phone-header {
     text-align: center;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
 
@@ -265,14 +266,15 @@
   /* Timestamp badge at top of phone */
   .time-context {
     position: absolute;
-    top: 44px;
+    top: 52px;
     left: 16px;
     right: 16px;
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 10px;
-    color: #555;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #888;
     opacity: 0;
     transition: opacity 0.4s;
   }
@@ -307,7 +309,7 @@
 
       <div class="time-context" id="timeCtx">
         <div class="time-dot"></div>
-        <span>You're on a job. AI is watching.</span>
+        <span>You're on a job and your agent is watching operations.</span>
       </div>
 
       <div class="notif-area">
