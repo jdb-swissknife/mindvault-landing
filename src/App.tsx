@@ -89,8 +89,7 @@ export default function App() {
           <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Service Businesses</p>
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your roofing, solar &amp; home service leads.<br />Captured. Followed up. Booked. 24/7.
-            <span className="text-stone-400"> While you're on the job.</span>
+            Minneapolis Roofing, Solar &amp; Home Services.<br />Your AI Foreman captures every lead. 24/7.
           </h1>
           <div className="mt-8 space-y-3 max-w-lg">
             <div className="flex items-start gap-3">
@@ -263,7 +262,7 @@ export default function App() {
       {/* ── What You Get (Value Stack) ── */}
       <section className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MINDVAULT</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
             Everything your AI Foreman handles. From day one.
           </h2>
@@ -410,19 +409,23 @@ export default function App() {
       {/* ── Bonuses ── */}
       <section className="bg-charcoal-900 border-y border-charcoal-700">
         <div className="max-w-5xl mx-auto px-4 py-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6 text-center">INCLUDED AT NO EXTRA COST</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-2 text-center">FREE BONUSES</p>
+          <h2 className="text-2xl font-extrabold text-white text-center mb-8">3 bonuses included at no extra cost when you sign up</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-white font-bold text-base mb-1">Free Tools Access</p>
-              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, and review request templates. Yours to keep, forever.</p>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #1</p>
+              <p className="text-white font-bold text-base mb-2">Free Tools Access (Forever)</p>
+              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, review request templates. Yours to keep even if you cancel.</p>
             </div>
-            <div>
-              <p className="text-white font-bold text-base mb-1">Free Offer Audit</p>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #2</p>
+              <p className="text-white font-bold text-base mb-2">Free Offer Audit ($500 Value)</p>
               <p className="text-stone-400 text-sm">We run your website through our Offer Auditor and show you exactly where leads are leaking. Before you pay a dime.</p>
             </div>
-            <div>
-              <p className="text-white font-bold text-base mb-1">Custom Setup Included</p>
-              <p className="text-stone-400 text-sm">We build your scripts, your follow-up sequences, your response templates. All custom to your business. No DIY.</p>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #3</p>
+              <p className="text-white font-bold text-base mb-2">Custom Setup Included ($1,500 Value)</p>
+              <p className="text-stone-400 text-sm">We build your scripts, follow-up sequences, and response templates. All custom to your business. No DIY.</p>
             </div>
           </div>
         </div>
