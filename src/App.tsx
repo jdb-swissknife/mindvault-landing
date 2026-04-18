@@ -89,7 +89,7 @@ export default function App() {
           <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Service Businesses</p>
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Minneapolis Roofing, Solar &amp; Home Services.<br />Your AI Foreman captures every lead. 24/7.
+            Twin Cities Roofing, Solar &amp; Home Services.<br />Your AI Foreman captures every lead. 24/7.
           </h1>
           <div className="mt-8 space-y-3 max-w-lg">
             <div className="flex items-start gap-3">
@@ -406,27 +406,48 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Bonuses ── */}
+      {/* ── Value-Adds ── */}
       <section className="bg-charcoal-900 border-y border-charcoal-700">
-        <div className="max-w-5xl mx-auto px-4 py-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-2 text-center">FREE BONUSES</p>
-          <h2 className="text-2xl font-extrabold text-white text-center mb-8">3 bonuses included at no extra cost when you sign up</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">VALUE-ADD BONUSES</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
+            We start with leads. But that's just the beginning.
+          </h2>
+          <p className="text-stone-400 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+            Every day your MindVault system runs, it learns your workflows. It spots bottlenecks. It builds internal systems. More gets done without growing payroll. Here's what's included on top of your core setup:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #1</p>
-              <p className="text-white font-bold text-base mb-2">Free Tools Access (Forever)</p>
-              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, review request templates. Yours to keep even if you cancel.</p>
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
+              <p className="text-white font-bold text-base mb-2">Free Tools (Yours Forever)</p>
+              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, review request templates. Keep them even if you cancel.</p>
+              <p className="text-rust-500 font-bold text-sm mt-3">$200/mo value</p>
             </div>
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #2</p>
-              <p className="text-white font-bold text-base mb-2">Free Offer Audit ($500 Value)</p>
-              <p className="text-stone-400 text-sm">We run your website through our Offer Auditor and show you exactly where leads are leaking. Before you pay a dime.</p>
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
+              <p className="text-white font-bold text-base mb-2">Free Offer Audit</p>
+              <p className="text-stone-400 text-sm">We run your website through our Offer Auditor and show you exactly where you're losing leads and how to fix it.</p>
+              <p className="text-rust-500 font-bold text-sm mt-3">$500 value</p>
             </div>
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-2">Bonus #3</p>
-              <p className="text-white font-bold text-base mb-2">Custom Setup Included ($1,500 Value)</p>
-              <p className="text-stone-400 text-sm">We build your scripts, follow-up sequences, and response templates. All custom to your business. No DIY.</p>
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
+              <p className="text-white font-bold text-base mb-2">Custom Setup Included</p>
+              <p className="text-stone-400 text-sm">We build your scripts, follow-up sequences, and response templates from scratch. All custom to your business. No DIY.</p>
+              <p className="text-rust-500 font-bold text-sm mt-3">$1,500 value</p>
             </div>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
+              <p className="text-white font-bold text-base mb-2">Expanding AI Capabilities</p>
+              <p className="text-stone-400 text-sm">Your system grows into scheduling, marketing, HR, training, and operations. It learns your business and builds systems you didn't know you needed.</p>
+              <p className="text-rust-500 font-bold text-sm mt-3">Unlimited potential</p>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Free Audit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>
