@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { supabase } from './lib/supabase'
+import WizardCompanion from './WizardCompanion'
 
 // ── Logo ──────────────────────────────────────────────
 function Logo({ className = '' }: { className?: string }) {
@@ -42,7 +43,6 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
   const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
   const [submitted, setSubmitted] = useState(() => localStorage.getItem('mv_submitted') === 'true')
   const [loading, setLoading] = useState(false)
 
@@ -54,7 +54,7 @@ export default function App() {
       if (supabase) {
         const { error } = await supabase
           .from('landing_leads')
-          .insert({ email, phone: phone || null, source: 'landing' })
+          .insert({ email, phone: null, source: 'landing' })
         if (error) throw error
       }
       setSubmitted(true)
@@ -70,6 +70,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-sand-100 font-[Inter,system-ui,sans-serif] text-onyx">
+      <WizardCompanion />
 
       {/* ── Nav ── */}
       <nav className="bg-charcoal-900 border-b border-charcoal-700">
@@ -88,8 +89,8 @@ export default function App() {
           <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Service Businesses</p>
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your operations.<br />Handled. 24/7.
-            <span className="text-stone-400"> While you focus on the work.</span>
+            Your roofing, solar &amp; home service leads.<br />Captured. Followed up. Booked. 24/7.
+            <span className="text-stone-400"> While you're on the job.</span>
           </h1>
           <div className="mt-8 space-y-3 max-w-lg">
             <div className="flex items-start gap-3">
@@ -174,23 +175,29 @@ export default function App() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
             Every lead you miss is a $5,000 job your competitor just took.
           </h2>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">You can't answer fast enough</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">You're on a roof when the call comes in</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                You're on a roof or in a crawl space when the call comes in. By the time you call back, they already hired the guy who answered first.
+                A homeowner calls about a leaky roof. You're 30 feet up on another job. By the time you call back 2 hours later, they already hired the guy who answered on the first ring. That's a $6,000 job gone.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-bold text-onyx mb-2">Follow-up falls through the cracks</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                You meant to send that quote. You meant to check in next week. But the next emergency showed up and that deal went cold.
+                You measured the roof. You meant to send the quote that night. But a crew emergency ate your evening, and by Monday that customer went with the company that followed up Friday afternoon.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-onyx mb-2">Storm damage jobs vanish into voicemail</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Hail hits. Ten people need tarps now. Your voicemail fills up overnight and they all call the next number on Google. Those $8,000 repair jobs are gone before sunrise.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-bold text-onyx mb-2">Hiring doesn't fix it</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Another body in the office costs $40K a year and still misses leads on nights and weekends. The problem isn't people. It's coverage.
+                Another body in the office costs $40K a year and still misses leads on nights and weekends. After-hours calls, weekend estimate requests, holiday emergencies. The problem isn't people. It's coverage.
               </p>
             </div>
           </div>
@@ -253,6 +260,79 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── What You Get (Value Stack) ── */}
+      <section className="bg-sand-100 border-b border-sand-300">
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
+            Everything your AI Foreman handles. From day one.
+          </h2>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Instant Lead Response</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Every call, form fill, and text gets a response in under 90 seconds. 24 hours a day, 7 days a week. Never lose a lead to voicemail again.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Custom Follow-Up Sequences</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">5-step automated follow-ups built for your industry. Quotes get chased. Estimates get confirmed. No lead falls through the cracks, ever.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Real-Time Dashboard</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">See every lead, every response time, every booked job. Track ROI down to the dollar. Know exactly what your AI Foreman is doing, anytime.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Missed Call Text-Back</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Every missed call automatically gets a text within 60 seconds. "Hey, saw I missed your call. Are you looking for a roofing estimate?" Job saved.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Automated Review Collection</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">When jobs complete, your AI sends review requests via text and email. Build your Google reputation on autopilot while you focus on the next job.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-onyx mb-1">Scheduling &amp; Booking</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Leads get booked directly onto your calendar. Estimates, follow-ups, and crew scheduling all handled automatically. No more back-and-forth texts.</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Get Your Free Audit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── Free Tools ── */}
       <section id="free-tools" className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
@@ -263,6 +343,7 @@ export default function App() {
           <p className="mt-3 text-stone-600 max-w-lg">
             Built for service businesses. Drop your email to unlock all four. See what we're about before you ever talk to us.
           </p>
+          <p className="mt-2 text-sm font-semibold text-rust-500">Included free with every plan.</p>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* BizCard */}
@@ -297,10 +378,11 @@ export default function App() {
 
           {/* Email capture */}
           <div id="lead-capture" className="mt-12 max-w-md">
-            <p className="text-sm font-bold text-onyx mb-3">Get early access to new tools:</p>
+            <p className="text-sm font-bold text-onyx mb-1">Get Your Free Audit + Unlock All Tools</p>
+            <p className="text-xs text-stone-500 mb-3">We'll run your business through our Offer Auditor and show you exactly where you're losing jobs. Plus full access to every free tool.</p>
             {submitted ? (
               <div className="bg-charcoal-900 rounded-lg p-4 text-center">
-                <p className="text-sm text-white font-bold">You're in!</p>
+                <p className="text-sm text-white font-bold">You're in! Check your inbox.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -312,25 +394,12 @@ export default function App() {
                   onChange={e => setEmail(e.target.value)}
                   className="w-full rounded-lg border border-sand-300 px-4 py-3 text-sm bg-white text-onyx placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500 focus:border-transparent"
                 />
-                <input
-                  type="tel"
-                  placeholder="Phone (optional)"
-                  value={phone}
-                  onChange={e => setPhone(e.target.value)}
-                  className="w-full rounded-lg border border-sand-300 px-4 py-3 text-sm bg-white text-onyx placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500 focus:border-transparent"
-                />
-                <label className="flex items-start gap-2 cursor-pointer">
-                  <input type="checkbox" required className="mt-0.5 rounded border-stone-400 text-rust-500 focus:ring-rust-500" />
-                  <span className="text-[11px] text-stone-500 leading-relaxed">
-                    I agree to receive emails and text messages from MindVault Studio. Message frequency varies. Reply STOP to unsubscribe. View our <a href="/privacy" target="_blank" className="underline hover:text-rust-500">Privacy Policy</a>.
-                  </span>
-                </label>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 rounded-lg bg-charcoal-900 text-white font-semibold text-sm hover:bg-charcoal-950 disabled:opacity-50 transition-colors"
+                  className="w-full py-3 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 disabled:opacity-50 transition-colors"
                 >
-                  {loading ? 'Sending...' : 'Get Early Access'}
+                  {loading ? 'Sending...' : 'Get Free Audit & Tools'}
                 </button>
               </form>
             )}
@@ -338,13 +407,24 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Urgency Banner ── */}
+      {/* ── Bonuses ── */}
       <section className="bg-charcoal-900 border-y border-charcoal-700">
-        <div className="max-w-5xl mx-auto px-4 py-8 text-center">
-          <p className="text-sm font-bold text-rust-500 uppercase tracking-wider mb-2">More tools launching soon</p>
-          <p className="text-sm text-stone-400 max-w-lg mx-auto">
-            We continuously do the hard work so it is seamless and simple for you to grow your company. Free for 30 days, then members only.
-          </p>
+        <div className="max-w-5xl mx-auto px-4 py-12">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6 text-center">INCLUDED AT NO EXTRA COST</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-white font-bold text-base mb-1">Free Tools Access</p>
+              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, and review request templates. Yours to keep, forever.</p>
+            </div>
+            <div>
+              <p className="text-white font-bold text-base mb-1">Free Offer Audit</p>
+              <p className="text-stone-400 text-sm">We run your website through our Offer Auditor and show you exactly where leads are leaking. Before you pay a dime.</p>
+            </div>
+            <div>
+              <p className="text-white font-bold text-base mb-1">Custom Setup Included</p>
+              <p className="text-stone-400 text-sm">We build your scripts, your follow-up sequences, your response templates. All custom to your business. No DIY.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -376,6 +456,35 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Guarantee ── */}
+      <section className="bg-charcoal-900 text-white">
+        <div className="max-w-3xl mx-auto px-4 py-20 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-rust-500 mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2" strokeLinecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+            Don't pay a dime until you see it work.
+          </h2>
+          <p className="text-stone-400 max-w-lg mx-auto mb-6 leading-relaxed">
+            Your first 30 days are completely free. We set everything up, your AI Foreman starts capturing leads, and you see the results before you ever enter a credit card. If it's not working for your business after 30 days, you walk away. No contracts. No fine print.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
+            <div className="flex items-center gap-2 text-stone-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No credit card required
+            </div>
+            <div className="flex items-center gap-2 text-stone-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No contracts, cancel anytime
+            </div>
+            <div className="flex items-center gap-2 text-stone-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Full setup included
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Bottom CTA ── */}
       <section className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 py-20 text-center">
@@ -383,14 +492,14 @@ export default function App() {
             Stop losing jobs you already earned.
           </h2>
           <p className="text-stone-400 max-w-md mx-auto mb-8">
-            Free audit. Free tools. AI that works from day one. See the results before you pay a dime.
+            Free audit. Free tools. Free 30-day trial. AI that works from day one. You literally cannot lose.
           </p>
           <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
-            Book a Call with John Bird, Founder
+            Book Your Free Audit with John
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <p className="text-xs text-stone-500 mt-4">Minneapolis, MN. We work with businesses nationwide.</p>
+          <p className="text-xs text-stone-500 mt-4">15-minute call. No pressure. Minneapolis, MN. Nationwide.</p>
         </div>
       </section>
 
