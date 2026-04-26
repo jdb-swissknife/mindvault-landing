@@ -142,9 +142,9 @@ export default function SolarSavingsCalc() {
               <p className="text-xs text-amber-700">This is a rough estimate based on national averages. Actual savings depend on your roof angle, shading, local rates, and incentives.</p>
             </div>
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get detailed proposals with satellite roof analysis, incentive lookup by zip code, and side-by-side installer comparison.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get custom solar proposals.</p>
+              <p className="text-xs text-gray-600">Your AI agents can generate detailed proposals with satellite roof analysis, incentive lookup by zip code, and side-by-side installer comparison. Built for your business, your margins, your territory.</p>
             </div>
 
             <div className="text-center space-y-3">

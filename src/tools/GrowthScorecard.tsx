@@ -100,6 +100,70 @@ export default function GrowthScorecard() {
               <p className="text-sm text-gray-500 mt-2">{score} out of 10</p>
             </div>
 
+            {/* Estimated Savings */}
+            <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <h3 className="text-sm font-bold text-gray-900 mb-4">Estimated Impact of Closing Your Gaps</h3>
+              <div className="space-y-3">
+                {!answers[1] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">Speed-to-lead response</p>
+                    <p className="text-sm font-bold text-green-700">+15-25% lead conversion</p>
+                  </div>
+                )}
+                {!answers[2] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">Automated follow-up sequences</p>
+                    <p className="text-sm font-bold text-green-700">+20-30% estimate close rate</p>
+                  </div>
+                )}
+                {!answers[3] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">Pipeline visibility</p>
+                    <p className="text-sm font-bold text-green-700">$2K-8K/mo recovered leads</p>
+                  </div>
+                )}
+                {!answers[5] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">Automated reporting</p>
+                    <p className="text-sm font-bold text-green-700">10-15 hrs/mo owner time saved</p>
+                  </div>
+                )}
+                {!answers[6] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">Lead source tracking</p>
+                    <p className="text-sm font-bold text-green-700">20-40% lower ad spend waste</p>
+                  </div>
+                )}
+                {!answers[9] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">CRM-connected scheduling</p>
+                    <p className="text-sm font-bold text-green-700">+12-18% jobs booked</p>
+                  </div>
+                )}
+                {!answers[10] && (
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <p className="text-sm text-gray-700">AI agents on repetitive tasks</p>
+                    <p className="text-sm font-bold text-green-700">40-60% admin time reduced</p>
+                  </div>
+                )}
+                {missed.length > 0 && (
+                  <div className="pt-3 border-t border-gray-200">
+                    <div className="flex justify-between items-center">
+                      <p className="text-sm font-bold text-gray-900">Combined estimated impact</p>
+                      <p className="text-base font-extrabold text-green-700">
+                        {missed.length >= 5 ? '$5K-15K/mo' : missed.length >= 3 ? '$3K-8K/mo' : '$1K-4K/mo'} in recovered revenue
+                      </p>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-1">Based on industry averages for service businesses with 5-30 employees. Your actual results may vary.</p>
+                  </div>
+                )}
+                {missed.length === 0 && (
+                  <p className="text-sm text-green-700 font-medium text-center py-2">Your systems are solid. The next level is AI agents running on top of what you have built.</p>
+                )}
+              </div>
+            </div>
+
+            {/* Gaps found */}
             {missed.length > 0 && (
               <div>
                 <h3 className="text-sm font-bold text-gray-900 mb-3">What to fix ({missed.length} gaps found)</h3>
@@ -116,20 +180,21 @@ export default function GrowthScorecard() {
 
             {missed.length === 0 && (
               <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-                <p className="text-sm font-bold text-green-800">You're ahead of the pack.</p>
-                <p className="text-xs text-green-600 mt-1">But there's always room to grow. Let us show you what AI agents can do on top of your existing systems.</p>
+                <p className="text-sm font-bold text-green-800">You are ahead of the pack.</p>
+                <p className="text-xs text-green-600 mt-1">But there is always room to grow. Let us show you what AI agents can do on top of your existing systems.</p>
               </div>
             )}
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get a full operational audit with a prioritized roadmap, custom automation plan, and ongoing AI agent management.</p>
+            {/* Client statement */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get a custom scorecard.</p>
+              <p className="text-xs text-gray-600">Your AI agents track extensive data points across every workflow and provide ongoing analysis to ensure continuous improvement in operations and revenue growth. This is just the snapshot.</p>
             </div>
 
             <div className="text-center space-y-3">
-              <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+              <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
                 className="block w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 transition-colors">
-                Get a Free Audit to Fix Your Gaps
+                Get Your Free Audit
               </a>
               <button onClick={() => { setShowResult(false); setAnswers({}) }}
                 className="text-sm text-gray-400 hover:text-navy-900 transition-colors underline">

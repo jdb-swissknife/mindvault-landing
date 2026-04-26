@@ -184,9 +184,9 @@ export default function FollowUpGen() {
               </div>
             ))}
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get premium features: white label branding on all sequences, custom industry templates, and automated delivery so you never lift a finger.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get custom follow-up sequences.</p>
+              <p className="text-xs text-gray-600">Your AI agents learn your voice, your pricing, your customer patterns. They write and send follow-ups automatically, built around your actual business. This generator gives you the template. The real thing runs without you.</p>
             </div>
 
             <div className="pt-4 text-center space-y-3">

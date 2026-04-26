@@ -132,9 +132,9 @@ export default function ROICalc() {
               <p className="text-xs text-gray-400">Based on industry data: responding within 5 minutes makes you 21x more likely to qualify the lead.</p>
             </div>
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get premium features: save multiple calculations, compare response times side-by-side, and get a custom AI response plan built for your business.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get a custom ROI model.</p>
+              <p className="text-xs text-gray-600">Your AI agents track real response data and continuously optimize to maximize lead conversion. This calculator shows the potential. The real numbers come from your actual operations.</p>
             </div>
 
             <div className="text-center space-y-3">

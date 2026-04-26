@@ -247,9 +247,9 @@ export default function EstimateTracker() {
 
         {estimates.length > 0 && (
           <div className="mt-8 space-y-4">
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get automated follow-up reminders by text and email, pipeline analytics, and AI that follows up on cold estimates automatically.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get automated estimate tracking.</p>
+              <p className="text-xs text-gray-600">Your AI agents track every estimate, follow up on cold ones automatically, and give you pipeline analytics so you always know what is pending, what is won, and what needs a nudge.</p>
             </div>
 
             <div className="text-center">

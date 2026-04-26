@@ -156,9 +156,9 @@ export default function ReviewRequestGen() {
               </div>
             ))}
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Stop sending these manually.</p>
-              <p className="text-xs text-navy-700/70">Your AI Foreman sends review requests automatically by text and email the moment a job is marked complete. No copy-paste. No forgetting. Every customer gets asked, every time.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients never send these manually.</p>
+              <p className="text-xs text-gray-600">Your AI agents send review requests automatically by text and email the moment a job is marked complete. No copy-paste. No forgetting. Every customer gets asked, every time.</p>
             </div>
 
             <div className="pt-4 text-center space-y-3">

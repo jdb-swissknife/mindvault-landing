@@ -204,9 +204,9 @@ export default function OnboardingChecklist() {
               </div>
             ))}
 
-            <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
-              <p className="text-xs text-navy-700/70">Pro members get one-form onboarding. New hire fills out a single intake form and every account provisions automatically across all your systems. Zero manual setup.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
+              <p className="text-sm font-semibold text-gray-900 mb-1">Mind<span className="text-rust-500">Vault</span> clients get a custom onboarding system.</p>
+              <p className="text-xs text-gray-600">Your AI agents can build a single-form onboarding process that provisions every system automatically. New hire fills it out once, and they are ready to go. Zero manual setup for you.</p>
             </div>
 
             <div className="text-center space-y-3">
