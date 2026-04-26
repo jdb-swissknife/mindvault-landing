@@ -15,12 +15,12 @@ const QUESTIONS = [
   { id: 10, q: 'Do you have AI agents handling repetitive tasks?', fix: 'Deploy AI agents for lead response, follow-ups, and scheduling. They work 24/7.' },
 ]
 
-function getGrade(score: number) {
-  if (score >= 9) return { letter: 'A', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' }
-  if (score >= 7) return { letter: 'B', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' }
-  if (score >= 5) return { letter: 'C', color: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200' }
-  if (score >= 3) return { letter: 'D', color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' }
-  return { letter: 'F', color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' }
+function getStage(score100: number) {
+  if (score100 >= 90) return { label: 'Fully Optimized', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' }
+  if (score100 >= 70) return { label: 'Strong Foundation', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' }
+  if (score100 >= 50) return { label: 'Building Momentum', color: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200' }
+  if (score100 >= 30) return { label: 'Getting Started', color: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200' }
+  return { label: 'Room to Grow', color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' }
 }
 
 export default function GrowthScorecard() {
@@ -47,8 +47,8 @@ export default function GrowthScorecard() {
     }
   }
 
-  const score = Object.values(answers).filter(Boolean).length
-  const grade = getGrade(score)
+  const score100 = Object.values(answers).filter(Boolean).length * 10
+  const stage = getStage(score100)
   const missed = QUESTIONS.filter(q => answers[q.id] !== true)
 
   const handleSendReport = async () => {
@@ -58,8 +58,8 @@ export default function GrowthScorecard() {
       if (supabase) {
         await supabase.from('scorecard_results').insert({
           email: reportEmail,
-          score,
-          grade: grade.letter,
+          score: score100,
+          grade: stage.label,
           answers,
           gaps: missed.map(q => ({ question: q.q, fix: q.fix })),
         })
@@ -126,11 +126,11 @@ export default function GrowthScorecard() {
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Grade */}
-            <div className={`${grade.bg} border ${grade.border} rounded-xl p-6 text-center`}>
+            {/* Score */}
+            <div className={`${stage.bg} border ${stage.border} rounded-xl p-6 text-center`}>
               <p className="text-sm font-medium text-gray-600 mb-2">Your Growth Score</p>
-              <p className={`text-7xl font-extrabold ${grade.color}`}>{grade.letter}</p>
-              <p className="text-sm text-gray-500 mt-2">{score} out of 10</p>
+              <p className={`text-7xl font-extrabold ${stage.color}`}>{score100}</p>
+              <p className={`text-sm font-semibold mt-2 ${stage.color}`}>{stage.label}</p>
             </div>
 
             {/* Estimated Savings */}
@@ -197,7 +197,7 @@ export default function GrowthScorecard() {
 
             {missed.length === 0 && (
               <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-                <p className="text-sm font-bold text-green-800">Your systems are solid. 10 out of 10.</p>
+                <p className="text-sm font-bold text-green-800">Your systems are solid. 100 out of 100.</p>
                 <p className="text-xs text-green-600 mt-1">The next level is AI agents running on top of what you have built. Always optimizing, always finding the next edge.</p>
               </div>
             )}
