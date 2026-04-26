@@ -399,62 +399,128 @@ export default function App() {
           </p>
           <p className="mt-2 text-sm font-semibold text-rust-500">Your agents can customize these. Or build new ones from scratch.</p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Growth Scorecard Hero Card */}
+          <div className="mt-10">
+            <a href={submitted ? "#/growth-scorecard" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-charcoal-900 rounded-2xl p-8 hover:bg-charcoal-800 transition-all hover:shadow-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-rust-500 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-rust-500 text-white text-xs font-bold uppercase tracking-wider mb-2">Start Here</span>
+                  <h3 className="text-2xl font-extrabold text-white mb-1">Growth Scorecard</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed max-w-xl">10 questions. 60 seconds. See exactly where your business is losing money and get a personalized action plan to fix it.</p>
+                </div>
+                <div className="hidden sm:flex items-center text-rust-500 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                  Take the quiz
+                  <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Tool Grid */}
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* BizCard */}
             <a href={submitted ? "https://bizcard.mindvaultstudio.net" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">Popular</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Digital Business Card</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Professional card with QR code in 30 seconds. Download, share, done.</p>
-            </a>
-            {/* Growth Scorecard */}
-            <a href={submitted ? "#/growth-scorecard" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">New</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Growth Scorecard</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Score your business across 5 categories. Find out where you are leaving money on the table.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-navy-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-rust-500">Popular</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Digital Business Card</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">Professional card with QR code in 30 seconds. Download, share, done.</p>
+                </div>
+              </div>
             </a>
             {/* ROI Calculator */}
             <a href={submitted ? "#/roi-calculator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Lead Response ROI Calculator</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">See how much money slow response costs you every single month.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Lead Response ROI Calculator</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">See how much money slow response costs you every single month.</p>
+                </div>
+              </div>
             </a>
             {/* Follow-Up Generator */}
             <a href={submitted ? "#/follow-up-generator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Follow-Up Sequence Generator</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">5-step follow-up sequence for your industry. Copy, paste, send.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Follow-Up Sequence Generator</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">5-step follow-up sequence for your industry. Copy, paste, send.</p>
+                </div>
+              </div>
             </a>
             {/* Estimate Tracker */}
             <a href={submitted ? "#/estimate-tracker" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Estimate Tracker</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Track every estimate from sent to won. Know what is pending, what is cold, and what needs a nudge.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Estimate Tracker</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">Track every estimate from sent to won. Know what is pending, what is cold, and what needs a nudge.</p>
+                </div>
+              </div>
             </a>
             {/* Review Request Generator */}
             <a href={submitted ? "#/review-request-generator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Review Request Generator</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your AI Foreman sends them automatically when jobs complete.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-yellow-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Review Request Generator</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your AI Foreman sends them automatically when jobs complete.</p>
+                </div>
+              </div>
             </a>
             {/* Onboarding Checklist */}
             <a href={submitted ? "#/onboarding-checklist" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">New Hire Onboarding Checklist</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Build a custom onboarding checklist for your industry. Get new hires productive faster.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">New Hire Onboarding Checklist</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">Build a custom onboarding checklist for your industry. Get new hires productive faster.</p>
+                </div>
+              </div>
             </a>
             {/* Solar Savings Calculator */}
             <a href={submitted ? "#/solar-savings-calculator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
-              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
-              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Solar Savings Calculator</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">Show homeowners their real savings. Built for solar companies closing deals in the field.</p>
+              className="group block bg-white rounded-xl border border-sand-300 p-5 hover:border-rust-400 hover:shadow-md transition-all">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
+                  <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Solar Savings Calculator</h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">Show homeowners their real savings. Built for solar companies closing deals in the field.</p>
+                </div>
+              </div>
             </a>
           </div>
 
