@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const SYSTEMS = [
@@ -77,6 +77,10 @@ export default function OnboardingChecklist() {
   const [checklist, setChecklist] = useState<ChecklistData | null>(null)
   const [checked, setChecked] = useState<Set<number>>(new Set())
   const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   const toggleSystem = (id: string) => {
     setSelectedSystems(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id])

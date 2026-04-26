@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function ROICalc() {
@@ -6,6 +6,10 @@ export default function ROICalc() {
   const [leadsPerMonth, setLeadsPerMonth] = useState('')
   const [responseHours, setResponseHours] = useState('')
   const [showResult, setShowResult] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   // Industry data: conversion drops ~10% per hour of delay after 5 min
   const jobVal = parseFloat(avgJobValue) || 0

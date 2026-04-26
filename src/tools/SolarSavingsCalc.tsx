@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const STATES = [
@@ -22,6 +22,10 @@ export default function SolarSavingsCalc() {
   const [state, setState] = useState('')
   const [sqft, setSqft] = useState('')
   const [showResult, setShowResult] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   const monthlyBill = parseFloat(bill) || 0
   const sunHours = STATES.find(s => s.value === state)?.sun || 4.5

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
@@ -29,6 +29,10 @@ export default function GrowthScorecard() {
   const [sendingReport, setSendingReport] = useState(false)
   const [reportSent, setReportSent] = useState(false)
   const [reportEmail, setReportEmail] = useState('')
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   const answeredCount = Object.keys(answers).length
   const allAnswered = answeredCount >= 10

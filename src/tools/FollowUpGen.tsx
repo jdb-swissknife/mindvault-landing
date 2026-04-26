@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const INDUSTRIES = [
@@ -64,6 +64,10 @@ export default function FollowUpGen() {
   const [bizName, setBizName] = useState('')
   const [sequence, setSequence] = useState<Sequence[] | null>(null)
   const [copied, setCopied] = useState<number | null>(null)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   const handleGenerate = (e: React.FormEvent) => {
     e.preventDefault()

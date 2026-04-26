@@ -38,6 +38,7 @@ export default function EstimateTracker() {
   const [dateSent, setDateSent] = useState(new Date().toISOString().split('T')[0])
 
   useEffect(() => { setEstimates(loadEstimates()) }, [])
+  useEffect(() => { window.scrollTo({ top: 0 }) }, [])
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault()
