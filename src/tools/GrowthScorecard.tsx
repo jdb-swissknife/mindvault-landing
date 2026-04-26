@@ -212,8 +212,8 @@ export default function GrowthScorecard() {
                 <h3 className="text-sm font-bold text-gray-900 mb-3">What to fix ({missed.length} gaps found)</h3>
                 <div className="space-y-3">
                   {missed.map(q => (
-                    <div key={q.id} className="bg-white border border-gray-200 rounded-xl p-4">
-                      <p className="text-sm font-medium text-gray-700 mb-1.5">{q.q.replace('Do you ', '').replace('?', '')}</p>
+                    <div key={q.id} className="bg-gray-50 border border-gray-300 rounded-xl p-4">
+                      <p className="text-sm font-medium text-gray-900 mb-1.5">{q.q.replace('Do you ', '').replace('?', '')}</p>
                       <p className="text-sm italic text-green-700">{q.fix}</p>
                     </div>
                   ))}
