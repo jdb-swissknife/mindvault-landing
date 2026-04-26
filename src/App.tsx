@@ -17,23 +17,41 @@ function Logo({ className = '' }: { className?: string }) {
 // ── Typewriter ────────────────────────────────────────
 function TypewriterText({ text }: { text: string }) {
   const [displayed, setDisplayed] = useState('')
-  const [done, setDone] = useState(false)
+  const [phase, setPhase] = useState<'typing' | 'pause' | 'erasing' | 'blank'>('typing')
+  const idx = useRef(0)
+
   useEffect(() => {
-    let i = 0
-    const interval = setInterval(() => {
-      i++
-      setDisplayed(text.slice(0, i))
-      if (i >= text.length) {
-        clearInterval(interval)
-        setDone(true)
+    let timer: ReturnType<typeof setTimeout>
+    if (phase === 'typing') {
+      if (idx.current < text.length) {
+        timer = setTimeout(() => {
+          idx.current++
+          setDisplayed(text.slice(0, idx.current))
+        }, 45)
+      } else {
+        timer = setTimeout(() => setPhase('pause'), 2200)
       }
-    }, 45)
-    return () => clearInterval(interval)
-  }, [text])
+    } else if (phase === 'pause') {
+      timer = setTimeout(() => setPhase('erasing'), 1800)
+    } else if (phase === 'erasing') {
+      if (idx.current > 0) {
+        timer = setTimeout(() => {
+          idx.current--
+          setDisplayed(text.slice(0, idx.current))
+        }, 25)
+      } else {
+        timer = setTimeout(() => setPhase('blank'), 400)
+      }
+    } else {
+      timer = setTimeout(() => setPhase('typing'), 300)
+    }
+    return () => clearTimeout(timer)
+  }, [phase, displayed, text])
+
   return (
     <span>
       {displayed}
-      <span className={`inline-block w-[2px] h-[0.8em] bg-rust-500 align-middle ml-0.5 ${done ? 'animate-pulse' : 'opacity-100'}`} />
+      <span className="inline-block w-[2px] h-[0.8em] bg-rust-500 align-middle ml-0.5 animate-pulse" />
     </span>
   )
 }
