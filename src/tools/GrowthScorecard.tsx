@@ -124,8 +124,8 @@ export default function GrowthScorecard() {
               </div>
             ))}
             <button type="button" onClick={handleScore} disabled={!allAnswered}
-              className="w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-              {allAnswered ? 'Get My Score' : `Answer all 10 questions (${answeredCount}/10)`}
+              className="w-full py-3 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors mt-6">
+              {allAnswered ? 'Get My Score' : `${answeredCount} of 10 answered`}
             </button>
           </div>
         ) : (
