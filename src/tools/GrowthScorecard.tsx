@@ -51,8 +51,7 @@ export default function GrowthScorecard() {
   const grade = getGrade(score)
   const missed = QUESTIONS.filter(q => answers[q.id] !== true)
 
-  const handleSendReport = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSendReport = async () => {
     if (!reportEmail) return
     setSendingReport(true)
     try {
@@ -218,29 +217,58 @@ export default function GrowthScorecard() {
               </div>
             )}
 
-            {/* Save report */}
+            {/* Action Plan CTA -- the centerpiece */}
+            {missed.length > 0 && (
+              <div className="bg-charcoal-900 rounded-xl p-6 text-center text-white">
+                <p className="text-xs font-semibold uppercase tracking-wider text-rust-500 mb-2">Your Action Plan</p>
+                <p className="text-lg font-bold mb-1">
+                  You have {missed.length} gap{missed.length !== 1 ? 's' : ''} worth an estimated {missed.length >= 5 ? '$5K-15K' : missed.length >= 3 ? '$3K-8K' : '$1K-4K'}/mo.
+                </p>
+                <p className="text-sm text-gray-400 mb-5">
+                  Book a 15-minute Growth Audit. We'll walk through each gap and show you exactly what to fix first. No pitch. Just a plan.
+                </p>
+                <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+                  className="inline-block w-full py-3.5 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
+                  Book Your Growth Audit
+                </a>
+              </div>
+            )}
+
+            {missed.length === 0 && (
+              <div className="bg-charcoal-900 rounded-xl p-6 text-center text-white">
+                <p className="text-xs font-semibold uppercase tracking-wider text-rust-500 mb-2">Ready for the Next Level</p>
+                <p className="text-sm text-gray-400 mb-4">
+                  You've built great systems. AI agents can run on top of what you have, always optimizing, always finding the next edge.
+                </p>
+                <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+                  className="inline-block w-full py-3.5 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
+                  Book Your Growth Audit
+                </a>
+              </div>
+            )}
+
+            {/* Email capture -- secondary action for report copy */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-              <p className="text-sm font-bold text-gray-900 mb-1">Save your report</p>
-              <p className="text-xs text-gray-500 mb-3">We will email your results and follow up with a personalized analysis.</p>
+              <p className="text-sm font-bold text-gray-900 mb-1">Want a copy of this report?</p>
+              <p className="text-xs text-gray-500 mb-3">Enter your email and we'll send your results so you can review them later.</p>
               {reportSent ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
-                  <p className="text-sm font-medium text-green-800">Saved! We will be in touch.</p>
+                  <p className="text-sm font-medium text-green-800">Sent! Check your inbox.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSendReport} className="flex gap-2">
+                <div className="flex gap-2">
                   <input
                     type="email"
-                    required
                     placeholder="your@email.com"
                     value={reportEmail}
                     onChange={e => setReportEmail(e.target.value)}
                     className="flex-1 rounded-lg border border-gray-200 px-4 py-2.5 text-sm bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent"
                   />
-                  <button type="submit" disabled={sendingReport}
+                  <button type="button" onClick={handleSendReport} disabled={sendingReport || !reportEmail}
                     className="px-5 py-2.5 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 disabled:opacity-50 transition-colors whitespace-nowrap">
-                    {sendingReport ? 'Saving...' : 'Save Report'}
+                    {sendingReport ? 'Sending...' : 'Send Report'}
                   </button>
-                </form>
+                </div>
               )}
             </div>
 
@@ -250,11 +278,7 @@ export default function GrowthScorecard() {
               <p className="text-xs text-gray-600">Your AI agents track extensive data points across every workflow and provide ongoing analysis to ensure continuous improvement in operations and revenue growth. This is just the snapshot.</p>
             </div>
 
-            <div className="text-center space-y-3">
-              <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
-                className="block w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 transition-colors">
-                Get Your Free Audit
-              </a>
+            <div className="text-center">
               <button onClick={() => { setShowResult(false); setAnswers({}) }}
                 className="text-sm text-gray-400 hover:text-navy-900 transition-colors underline">
                 Retake the scorecard
