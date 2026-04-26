@@ -14,6 +14,30 @@ function Logo({ className = '' }: { className?: string }) {
   )
 }
 
+// ── Typewriter ────────────────────────────────────────
+function TypewriterText({ text }: { text: string }) {
+  const [displayed, setDisplayed] = useState('')
+  const [done, setDone] = useState(false)
+  useEffect(() => {
+    let i = 0
+    const interval = setInterval(() => {
+      i++
+      setDisplayed(text.slice(0, i))
+      if (i >= text.length) {
+        clearInterval(interval)
+        setDone(true)
+      }
+    }, 45)
+    return () => clearInterval(interval)
+  }, [text])
+  return (
+    <span>
+      {displayed}
+      <span className={`inline-block w-[2px] h-[0.8em] bg-rust-500 align-middle ml-0.5 ${done ? 'animate-pulse' : 'opacity-100'}`} />
+    </span>
+  )
+}
+
 // ── Main App ──────────────────────────────────────────
 export default function App() {
   const demoRef = useRef<HTMLIFrameElement>(null)
@@ -66,23 +90,31 @@ export default function App() {
       <nav className="bg-charcoal-900 border-b border-charcoal-700">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
-          <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
-            className="text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors">
-            Book a Call
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="#workflows" onClick={e => { e.preventDefault(); document.getElementById('workflows')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Workflows</a>
+            <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Tool Suite</a>
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+              className="text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors">
+              Book a Call
+            </a>
+          </div>
         </div>
       </nav>
 
       {/* ── Hero ── */}
       <section className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 pt-20 pb-24">
-          <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Home Service Businesses</p>
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR CRM RUNS YOUR BUSINESS</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6 h-5" aria-label="AI Workforce for Service Businesses">
+            <TypewriterText text="AI Workforce for Service Businesses" />
+          </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your CRM does the heavy lifting.<br />
-            <span className="text-rust-500">The manual stuff around it is killing you.</span>
+            Your next hire works 24/7 and never misses those expensive leads.
           </h1>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">Every lead that slips through. Every report someone pulls by hand. Every process that only works if everyone remembers to do their part. Mind<span className="text-rust-500">Vault</span> closes those gaps.</p>
+          <p className="mt-8 text-stone-400 max-w-2xl leading-relaxed">
+            Mind<span className="text-rust-500">Vault</span> gives service businesses an AI workforce that responds to leads in 60 seconds, follows up on estimates, collects reviews, and books jobs automatically. Pick a workflow. We handle the rest.
+          </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
