@@ -122,7 +122,7 @@ export default function GrowthScorecard() {
             )}
 
             <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">MindVault Pro</p>
+              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
               <p className="text-xs text-navy-700/70">Pro members get a full operational audit with a prioritized roadmap, custom automation plan, and ongoing AI agent management.</p>
             </div>
 

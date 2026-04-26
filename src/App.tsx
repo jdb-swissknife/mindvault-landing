@@ -6,19 +6,9 @@ import WizardCompanion from './WizardCompanion'
 function Logo({ className = '' }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
-      <svg width="32" height="32" viewBox="0 0 200 200">
-        <path d="M100,8 L180,48 L180,115 Q180,168 100,195 Q20,168 20,115 L20,48 Z" fill="#111111" stroke="#111111" strokeWidth="6" strokeLinejoin="miter"/>
-        <path d="M100,22 L168,56 L168,112 Q168,158 100,182 Q32,158 32,112 L32,56 Z" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinejoin="miter"/>
-        <path d="M100,34 L158,62 L158,109 Q158,148 100,170 Q42,148 42,109 L42,62 Z" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" strokeLinejoin="miter"/>
-        <line x1="36" y1="75" x2="164" y2="75" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-        <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#ffffff" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-        <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#111111" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
-        <path d="M100,80 L126,122 L152,80" fill="none" stroke="#c2703e" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-        <path d="M100,80 L126,122 L152,80" fill="none" stroke="#111111" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
-        <path d="M92,190 L100,195 L108,190" fill="none" stroke="#c2703e" strokeWidth="2" strokeLinecap="round"/>
-      </svg>
+      <img src="/logo.png" alt="MindVault" style={{ height: 28, width: 'auto', borderRadius: 3 }} />
       <span className="text-lg font-bold text-white tracking-tight">
-        MindVault
+        Mind<span className="text-rust-500">Vault</span>
       </span>
     </div>
   )
@@ -76,7 +66,7 @@ export default function App() {
       <nav className="bg-charcoal-900 border-b border-charcoal-700">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
-          <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+          <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
             className="text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors">
             Book a Call
           </a>
@@ -86,36 +76,21 @@ export default function App() {
       {/* ── Hero ── */}
       <section className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 pt-20 pb-24">
-          <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Service Businesses</p>
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR AI FOREMAN</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">For Home Service Businesses</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6">YOUR CRM RUNS YOUR BUSINESS</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Twin Cities Roofing, Solar &amp; Home Services.<br />Your AI Foreman captures every lead. 24/7.
+            Your CRM does the heavy lifting.<br />
+            <span className="text-rust-500">The manual stuff around it is killing you.</span>
           </h1>
-          <div className="mt-8 space-y-3 max-w-lg">
-            <div className="flex items-start gap-3">
-              <span className="text-rust-500 font-bold text-sm mt-0.5">01</span>
-              <p className="text-stone-300 text-base">Leads that go cold</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-rust-500 font-bold text-sm mt-0.5">02</span>
-              <p className="text-stone-300 text-base">Follow-ups that never happen</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-rust-500 font-bold text-sm mt-0.5">03</span>
-              <p className="text-stone-300 text-base">Estimates that slip through the cracks</p>
-            </div>
-          </div>
-          <p className="mt-8 text-lg text-stone-500 max-w-xl leading-relaxed">
-            While you're on the roof, in the field, or running crews, your AI Foreman is running the office. All day. All night.
-          </p>
+          <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">Every lead that slips through. Every report someone pulls by hand. Every process that only works if everyone remembers to do their part. Mind<span className="text-rust-500">Vault</span> closes those gaps.</p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
-            <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-              Book a Call with John
+              Book Your Discovery Call
             </a>
             <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg border border-stone-500 text-stone-300 font-semibold text-sm hover:border-stone-400 hover:text-white transition-colors">
-              Try Free Tools
+              Tool Suite
             </a>
           </div>
         </div>
@@ -124,24 +99,17 @@ export default function App() {
       {/* ── Trust Strip ── */}
       <section className="bg-charcoal-800 border-b border-charcoal-700">
         <div className="max-w-5xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-center">
             <div className="text-center sm:text-left">
               <p className="text-3xl font-extrabold text-rust-500">142</p>
               <p className="text-sm text-stone-400 mt-1">Jobs handled this month</p>
             </div>
             <div className="border-t sm:border-t-0 sm:border-l border-charcoal-600 pt-4 sm:pt-0 sm:pl-6">
               <p className="text-sm text-stone-400 italic leading-relaxed">
-                "MindVault handles our leads while my crews are on roofs. I don't miss jobs anymore."
+                "Mind<span className="text-rust-500">Vault</span> handles our leads while my crews are on roofs. I don't miss jobs anymore."
               </p>
-              <p className="text-sm text-white font-bold mt-2">Bob Powell</p>
-              <p className="text-xs text-stone-500">Bob Knows Solar</p>
-            </div>
-            <div className="border-t sm:border-t-0 sm:border-l border-charcoal-600 pt-4 sm:pt-0 sm:pl-6">
-              <p className="text-sm text-stone-400 italic leading-relaxed">
-                "First 30 days free was all I needed to see. Signed up before the trial ended."
-              </p>
-              <p className="text-sm text-white font-bold mt-2">Mike Johnson</p>
-              <p className="text-xs text-stone-500">North Star Roofing, Minneapolis</p>
+              <p className="text-sm text-white font-bold mt-2">Robert P.</p>
+              <p className="text-xs text-stone-500">Bob Knows Solar · <a href="https://solar-blitz-plan.base44.app" target="_blank" rel="noopener noreferrer" className="text-rust-500 hover:text-rust-600">solar-blitz-plan.base44.app</a></p>
             </div>
           </div>
         </div>
@@ -172,31 +140,31 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">THE PROBLEM</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
-            Every lead you miss is a $5,000 job your competitor just took.
+            Your CRM works great. Here's what it doesn't do.
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">You're on a roof when the call comes in</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Website leads go to an email and then nothing happens</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                A homeowner calls about a leaky roof. You're 30 feet up on another job. By the time you call back 2 hours later, they already hired the guy who answered on the first ring. That's a $6,000 job gone.
+                They fill out the form, hit your inbox, and sit there. No auto-reply. No follow-up sequence. Just silence until someone remembers to check. By then, they've already called your competitor.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Follow-up falls through the cracks</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Your reports get printed on paper and handed to you</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                You measured the roof. You meant to send the quote that night. But a crew emergency ate your evening, and by Monday that customer went with the company that followed up Friday afternoon.
+                Someone in your office spends hours pulling data from your CRM every month. Revenue by category. Sales by source. All so you can dig through it looking for answers you should already have.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Storm damage jobs vanish into voicemail</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Everyone has to do their part or the whole chain breaks</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Hail hits. Ten people need tarps now. Your voicemail fills up overnight and they all call the next number on Google. Those $8,000 repair jobs are gone before sunrise.
+                Your CRM is only as good as the people using it. When someone forgets to log a lead or skips a follow-up, that job disappears. With 40 employees, something always gets missed.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Hiring doesn't fix it</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Hiring more people doesn't fix manual processes</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Another body in the office costs $40K a year and still misses leads on nights and weekends. After-hours calls, weekend estimate requests, holiday emergencies. The problem isn't people. It's coverage.
+                You brought on 3 people in the office and the same leads still slip through. More bodies doing manual work isn't the answer. The process itself needs to change.
               </p>
             </div>
           </div>
@@ -262,7 +230,7 @@ export default function App() {
       {/* ── What You Get (Value Stack) ── */}
       <section className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MINDVAULT</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MIND<span className="text-onyx">VAULT</span></p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
             Everything your AI Foreman handles. From day one.
           </h2>
@@ -323,26 +291,63 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 text-center">
-            <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-              Get Your Free Audit
+              Book Your Discovery Call
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ── Free Tools ── */}
+      {/* ── This Is Just Day One ── */}
+      <section className="bg-charcoal-900 border-y border-charcoal-700">
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">THIS IS JUST DAY ONE</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
+            Your Mind<span className="text-rust-500">Vault</span> system gets smarter every week.
+          </h2>
+          <p className="text-stone-400 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
+            Lead response is where we start. But the real compounding happens when your system starts learning how your business actually runs. The longer it runs, the tighter your operation gets.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Week 1-4</p>
+              <p className="text-white font-bold text-lg mb-3">Tightening Up</p>
+              <p className="text-stone-400 text-sm leading-relaxed">Every lead gets answered. Every estimate gets followed up. Missed calls get texted back. Your AI learns your scripts, your pricing, your scheduling patterns.</p>
+            </div>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Month 2-3</p>
+              <p className="text-white font-bold text-lg mb-3">Spotting Bottlenecks</p>
+              <p className="text-stone-400 text-sm leading-relaxed">Your system starts seeing things you miss. Leads stalling at the same step. Jobs falling off after estimates. It flags the problems and suggests fixes.</p>
+            </div>
+            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
+              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Month 6+</p>
+              <p className="text-white font-bold text-lg mb-3">Running The Machine</p>
+              <p className="text-stone-400 text-sm leading-relaxed">Your Mind<span className="text-rust-500">Vault</span> system proposes new workflows, tests them, and iterates. Scheduling, marketing, customer retention, hiring. It designs ways to grow and proves they work before you spend a dollar.</p>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tool Suite ── */}
       <section id="free-tools" className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">FREE TOOLS</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">TOOL SUITE</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight">
-            Grab them. No catch.
+            Grab and try free tools now.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
-            Built for service businesses. Drop your email to unlock all four. See what we're about before you ever talk to us.
+            Every tool below is free to use right now. When you join MindVault Studio, your AI agents unlock premium versions customized for your business.
           </p>
-          <p className="mt-2 text-sm font-semibold text-rust-500">Included free with every plan.</p>
+          <p className="mt-2 text-sm font-semibold text-rust-500">Your agents can customize these. Or build new ones from scratch.</p>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* BizCard */}
@@ -351,6 +356,13 @@ export default function App() {
               <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">Popular</span>
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Digital Business Card</h3>
               <p className="text-sm text-stone-600 leading-relaxed">Professional card with QR code in 30 seconds. Download, share, done.</p>
+            </a>
+            {/* Growth Scorecard */}
+            <a href={submitted ? "#/growth-scorecard" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">New</span>
+              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Growth Scorecard</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">Score your business across 5 categories. Find out where you are leaving money on the table.</p>
             </a>
             {/* ROI Calculator */}
             <a href={submitted ? "#/roi-calculator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
@@ -366,22 +378,55 @@ export default function App() {
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Follow-Up Sequence Generator</h3>
               <p className="text-sm text-stone-600 leading-relaxed">5-step follow-up sequence for your industry. Copy, paste, send.</p>
             </a>
+            {/* Estimate Tracker */}
+            <a href={submitted ? "#/estimate-tracker" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
+              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Estimate Tracker</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">Track every estimate from sent to won. Know what is pending, what is cold, and what needs a nudge.</p>
+            </a>
             {/* Review Request Generator */}
             <a href={submitted ? "#/review-request-generator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
               className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
-              <span className="text-xs font-semibold uppercase tracking-wider text-rust-500">New</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
               <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Review Request Generator</h3>
               <p className="text-sm text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your AI Foreman sends them automatically when jobs complete.</p>
+            </a>
+            {/* Onboarding Checklist */}
+            <a href={submitted ? "#/onboarding-checklist" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
+              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">New Hire Onboarding Checklist</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">Build a custom onboarding checklist for your industry. Get new hires productive faster.</p>
+            </a>
+            {/* Solar Savings Calculator */}
+            <a href={submitted ? "#/solar-savings-calculator" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
+              className="group block bg-white rounded-lg border border-sand-300 p-6 hover:border-rust-500 transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">Free Tool</span>
+              <h3 className="text-lg font-bold text-onyx mt-2 mb-1">Solar Savings Calculator</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">Show homeowners their real savings. Built for solar companies closing deals in the field.</p>
+            </a>
+          </div>
+
+          {/* Premium hint */}
+          <div className="mt-8 rounded-lg bg-white border border-sand-300 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="text-sm font-bold text-onyx">Every tool has a premium version.</p>
+              <p className="text-xs text-stone-500 mt-1">When you join MindVault Studio, your AI agents customize these tools to match your business. Your scripts. Your pricing. Your follow-up cadence. Or we build new ones from scratch.</p>
+            </div>
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+              className="shrink-0 px-5 py-2.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              See Premium Tools
             </a>
           </div>
 
           {/* Email capture */}
-          <div id="lead-capture" className="mt-12 max-w-md">
-            <p className="text-sm font-bold text-onyx mb-1">Get Your Free Audit + Unlock All Tools</p>
-            <p className="text-xs text-stone-500 mb-3">We'll run your business through our Offer Auditor and show you exactly where you're losing jobs. Plus full access to every free tool.</p>
+          <div id="lead-capture" className="mt-10 max-w-md">
+            <p className="text-sm font-bold text-onyx mb-1">Unlock All 8 Tools Free</p>
+            <p className="text-xs text-stone-500 mb-3">Drop your email. Use every tool right now, no strings attached. See what MindVault is about before you ever talk to us.</p>
             {submitted ? (
               <div className="bg-charcoal-900 rounded-lg p-4 text-center">
-                <p className="text-sm text-white font-bold">You're in! Check your inbox.</p>
+                <p className="text-sm text-white font-bold">You're in! Scroll up and try any tool.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -398,56 +443,10 @@ export default function App() {
                   disabled={loading}
                   className="w-full py-3 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 disabled:opacity-50 transition-colors"
                 >
-                  {loading ? 'Sending...' : 'Get Free Audit & Tools'}
+                  {loading ? 'Sending...' : 'Unlock All 8 Tools Free'}
                 </button>
               </form>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Value-Adds ── */}
-      <section className="bg-charcoal-900 border-y border-charcoal-700">
-        <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">VALUE-ADD BONUSES</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
-            We start with leads. But that's just the beginning.
-          </h2>
-          <p className="text-stone-400 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-            Every day your MindVault system runs, it learns your workflows. It spots bottlenecks. It builds internal systems. More gets done without growing payroll. Here's what's included on top of your core setup:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
-              <p className="text-white font-bold text-base mb-2">Free Tools (Yours Forever)</p>
-              <p className="text-stone-400 text-sm">Digital business card, ROI calculator, follow-up generator, review request templates. Keep them even if you cancel.</p>
-              <p className="text-rust-500 font-bold text-sm mt-3">$200/mo value</p>
-            </div>
-            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
-              <p className="text-white font-bold text-base mb-2">Free Offer Audit</p>
-              <p className="text-stone-400 text-sm">We run your website through our Offer Auditor and show you exactly where you're losing leads and how to fix it.</p>
-              <p className="text-rust-500 font-bold text-sm mt-3">$500 value</p>
-            </div>
-            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
-              <p className="text-white font-bold text-base mb-2">Custom Setup Included</p>
-              <p className="text-stone-400 text-sm">We build your scripts, follow-up sequences, and response templates from scratch. All custom to your business. No DIY.</p>
-              <p className="text-rust-500 font-bold text-sm mt-3">$1,500 value</p>
-            </div>
-            <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
-              <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-3">Value-Add Bonus</p>
-              <p className="text-white font-bold text-base mb-2">Expanding AI Capabilities</p>
-              <p className="text-stone-400 text-sm">Your system grows into scheduling, marketing, HR, training, and operations. It learns your business and builds systems you didn't know you needed.</p>
-              <p className="text-rust-500 font-bold text-sm mt-3">Unlimited potential</p>
-            </div>
-          </div>
-          <div className="mt-12 text-center">
-            <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-              Book Your Free Audit
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
           </div>
         </div>
       </section>
@@ -461,7 +460,7 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">90s</p>
+              <p className="text-4xl font-extrabold text-rust-500">60s</p>
               <p className="text-sm text-stone-600 mt-2">Average lead response time</p>
             </div>
             <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
@@ -473,8 +472,8 @@ export default function App() {
               <p className="text-sm text-stone-600 mt-2">More leads converted to jobs</p>
             </div>
             <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">$0</p>
-              <p className="text-sm text-stone-600 mt-2">First 30 days. No risk.</p>
+              <p className="text-4xl font-extrabold text-rust-500">90</p>
+              <p className="text-sm text-stone-600 mt-2">Day results guarantee</p>
             </div>
           </div>
         </div>
@@ -487,19 +486,19 @@ export default function App() {
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2" strokeLinecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-            Don't pay a dime until you see it work.
+            90-Day Results Guarantee.
           </h2>
           <p className="text-stone-400 max-w-lg mx-auto mb-6 leading-relaxed">
-            Your first 30 days are completely free. We set everything up, your AI Foreman starts capturing leads, and you see the results before you ever enter a credit card. If it's not working for your business after 30 days, you walk away. No contracts. No fine print.
+            We build it. We run it. If after 90 days your Mind<span className="text-rust-500">Vault</span> system isn't saving you more than it costs, we fix it until it does. No long-term contracts. No fine print. If it doesn't work, you walk.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
             <div className="flex items-center gap-2 text-stone-300">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              No credit card required
+              No long-term contracts
             </div>
             <div className="flex items-center gap-2 text-stone-300">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              No contracts, cancel anytime
+              Cancel anytime
             </div>
             <div className="flex items-center gap-2 text-stone-300">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -516,14 +515,17 @@ export default function App() {
             Stop losing jobs you already earned.
           </h2>
           <p className="text-stone-400 max-w-md mx-auto mb-8">
-            Free audit. Free tools. Free 30-day trial. AI that works from day one. You literally cannot lose.
+            30 minutes. No pitch. Just a straight look at where your operation is leaking. Book your discovery call today.
           </p>
-          <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+          <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
-            Book Your Free Audit with John
+            Book Your Discovery Call
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <p className="text-xs text-stone-500 mt-4">15-minute call. No pressure. Minneapolis, MN. Nationwide.</p>
+          <p className="text-xs text-stone-500 mt-4">30-minute discovery call. No pressure. Minneapolis, MN. Nationwide.</p>
+          <p className="text-sm text-stone-400 mt-3">
+            Prefer to call? <a href="tel:+16124407465" className="text-rust-500 hover:text-rust-600 transition-colors font-medium">612-440-7465</a>
+          </p>
         </div>
       </section>
 
@@ -531,18 +533,17 @@ export default function App() {
       <footer className="bg-charcoal-950 border-t border-charcoal-700">
         <div className="max-w-5xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5 opacity-40">
-            <svg width="24" height="24" viewBox="0 0 200 200">
-              <path d="M100,8 L180,48 L180,115 Q180,168 100,195 Q20,168 20,115 L20,48 Z" fill="#ffffff" stroke="#ffffff" strokeWidth="6"/>
-              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#111111" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#ffffff" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#111111" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#ffffff" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
-            </svg>
-            <span className="text-sm font-bold text-white">MindVault</span>
+            <img src="/logo.png" alt="MindVault" style={{ height: 20, width: 'auto', borderRadius: 2 }} />
+            <span className="text-sm font-bold text-white">Mind<span className="text-rust-500">Vault</span></span>
           </div>
-          <p className="text-xs text-stone-500">
-            &copy; 2026 MindVault Studio. Minneapolis, MN.
-          </p>
+          <div className="flex flex-col items-center sm:items-end gap-1">
+            <p className="text-xs text-stone-500">
+              &copy; 2026 Mind<span className="text-rust-500">Vault</span> Studio. Minneapolis, MN.
+            </p>
+            <p className="text-xs text-stone-500">
+              Support: <a href="tel:+16124407465" className="text-stone-400 hover:text-rust-500 transition-colors">612-440-7465</a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

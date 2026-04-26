@@ -133,7 +133,7 @@ export default function ROICalc() {
             </div>
 
             <div className="bg-navy-50 border border-navy-500/20 rounded-xl p-5 text-center">
-              <p className="text-sm font-semibold text-navy-900 mb-1">MindVault Pro</p>
+              <p className="text-sm font-semibold text-navy-900 mb-1">Mind<span className="text-rust-500">Vault</span> Studio</p>
               <p className="text-xs text-navy-700/70">Pro members get premium features: save multiple calculations, compare response times side-by-side, and get a custom AI response plan built for your business.</p>
             </div>
 
