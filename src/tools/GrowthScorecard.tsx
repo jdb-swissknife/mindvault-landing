@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
 
 const QUESTIONS = [
   { id: 1, q: 'Do you respond to every lead within 5 minutes?', fix: 'Set up an automated instant response so no lead waits.' },
@@ -25,19 +26,52 @@ function getGrade(score: number) {
 export default function GrowthScorecard() {
   const [answers, setAnswers] = useState<Record<number, boolean>>({})
   const [showResult, setShowResult] = useState(false)
+  const [sendingReport, setSendingReport] = useState(false)
+  const [reportSent, setReportSent] = useState(false)
+  const [reportEmail, setReportEmail] = useState('')
+
+  const answeredCount = Object.keys(answers).length
+  const allAnswered = answeredCount >= 10
 
   const setAnswer = (id: number, val: boolean) => {
-    setAnswers(prev => ({ ...prev, [id]: val }))
+    setAnswers(prev => {
+      const next = { ...prev, [id]: val }
+      return next
+    })
   }
 
-  const handleScore = (e: React.FormEvent) => {
-    e.preventDefault()
-    setShowResult(true)
+  const handleScore = () => {
+    if (Object.keys(answers).length >= 10) {
+      setShowResult(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   const score = Object.values(answers).filter(Boolean).length
   const grade = getGrade(score)
-  const missed = QUESTIONS.filter(q => !answers[q.id])
+  const missed = QUESTIONS.filter(q => answers[q.id] !== true)
+
+  const handleSendReport = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!reportEmail) return
+    setSendingReport(true)
+    try {
+      if (supabase) {
+        await supabase.from('scorecard_results').insert({
+          email: reportEmail,
+          score,
+          grade: grade.letter,
+          answers,
+          gaps: missed.map(q => ({ question: q.q, fix: q.fix })),
+        })
+      }
+      setReportSent(true)
+    } catch {
+      setReportSent(true)
+    } finally {
+      setSendingReport(false)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white font-[Inter,system-ui,sans-serif]">
@@ -45,12 +79,12 @@ export default function GrowthScorecard() {
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <svg width="28" height="28" viewBox="0 0 200 200">
-              <path d="M100,8 L180,48 L180,115 Q180,168 100,195 Q20,168 20,115 L20,48 Z" fill="#1a2a6c" stroke="#1a2a6c" strokeWidth="6" strokeLinejoin="miter"/>
-              <path d="M100,22 L168,56 L168,112 Q168,158 100,182 Q32,158 32,112 L32,56 Z" fill="none" stroke="#4f6ef7" strokeWidth="2.5" strokeLinejoin="miter"/>
-              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#ffffff" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#1a2a6c" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#4f6ef7" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter"/>
-              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#1a2a6c" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter"/>
+              <path d="M100,8 L180,48 L180,115 Q180,168 100,195 Q20,168 20,115 L20,48 Z" fill="#1a2a6c" stroke="#1a2a6c" strokeWidth="6" strokeLinejoin="miter" />
+              <path d="M100,22 L168,56 L168,112 Q168,158 100,182 Q32,158 32,112 L32,56 Z" fill="none" stroke="#4f6ef7" strokeWidth="2.5" strokeLinejoin="miter" />
+              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#ffffff" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter" />
+              <path d="M52,138 L52,80 L77,110 L100,80 L100,138" fill="none" stroke="#1a2a6c" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter" />
+              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#4f6ef7" strokeWidth="9" strokeLinecap="square" strokeLinejoin="miter" />
+              <path d="M100,80 L126,122 L152,80" fill="none" stroke="#1a2a6c" strokeWidth="3.5" strokeLinecap="square" strokeLinejoin="miter" />
             </svg>
             <span className="text-base font-bold text-navy-900 tracking-tight">Mind<tspan className="text-navy-500">Vault</tspan></span>
           </Link>
@@ -70,7 +104,7 @@ export default function GrowthScorecard() {
         </div>
 
         {!showResult ? (
-          <form onSubmit={handleScore} className="space-y-4">
+          <div className="space-y-4">
             {QUESTIONS.map(q => (
               <div key={q.id} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <p className="text-sm font-medium text-gray-700 mb-3">{q.id}. {q.q}</p>
@@ -86,11 +120,11 @@ export default function GrowthScorecard() {
                 </div>
               </div>
             ))}
-            <button type="submit" disabled={Object.keys(answers).length < 10}
+            <button type="button" onClick={handleScore} disabled={!allAnswered}
               className="w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-              {Object.keys(answers).length < 10 ? `Answer all 10 questions (${Object.keys(answers).length}/10)` : 'Get My Score'}
+              {allAnswered ? 'Get My Score' : `Answer all 10 questions (${answeredCount}/10)`}
             </button>
-          </form>
+          </div>
         ) : (
           <div className="space-y-6">
             {/* Grade */}
@@ -101,67 +135,73 @@ export default function GrowthScorecard() {
             </div>
 
             {/* Estimated Savings */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="text-sm font-bold text-gray-900 mb-4">Estimated Impact of Closing Your Gaps</h3>
-              <div className="space-y-3">
-                {!answers[1] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">Speed-to-lead response</p>
-                    <p className="text-sm font-bold text-green-700">+15-25% lead conversion</p>
-                  </div>
-                )}
-                {!answers[2] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">Automated follow-up sequences</p>
-                    <p className="text-sm font-bold text-green-700">+20-30% estimate close rate</p>
-                  </div>
-                )}
-                {!answers[3] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">Pipeline visibility</p>
-                    <p className="text-sm font-bold text-green-700">$2K-8K/mo recovered leads</p>
-                  </div>
-                )}
-                {!answers[5] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">Automated reporting</p>
-                    <p className="text-sm font-bold text-green-700">10-15 hrs/mo owner time saved</p>
-                  </div>
-                )}
-                {!answers[6] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">Lead source tracking</p>
-                    <p className="text-sm font-bold text-green-700">20-40% lower ad spend waste</p>
-                  </div>
-                )}
-                {!answers[9] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">CRM-connected scheduling</p>
-                    <p className="text-sm font-bold text-green-700">+12-18% jobs booked</p>
-                  </div>
-                )}
-                {!answers[10] && (
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <p className="text-sm text-gray-700">AI agents on repetitive tasks</p>
-                    <p className="text-sm font-bold text-green-700">40-60% admin time reduced</p>
-                  </div>
-                )}
-                {missed.length > 0 && (
-                  <div className="pt-3 border-t border-gray-200">
-                    <div className="flex justify-between items-center">
-                      <p className="text-sm font-bold text-gray-900">Combined estimated impact</p>
-                      <p className="text-base font-extrabold text-green-700">
-                        {missed.length >= 5 ? '$5K-15K/mo' : missed.length >= 3 ? '$3K-8K/mo' : '$1K-4K/mo'} in recovered revenue
-                      </p>
+            {missed.length > 0 && (
+              <div className="bg-white border border-gray-200 rounded-xl p-6">
+                <h3 className="text-sm font-bold text-gray-900 mb-4">Estimated Impact of Closing Your Gaps</h3>
+                <div className="space-y-3">
+                  {answers[1] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">Speed-to-lead response</p>
+                      <p className="text-sm font-bold text-green-700">+15-25% lead conversion</p>
                     </div>
-                    <p className="text-xs text-gray-400 mt-1">Based on industry averages for service businesses with 5-30 employees. Your actual results may vary.</p>
-                  </div>
-                )}
-                {missed.length === 0 && (
-                  <p className="text-sm text-green-700 font-medium text-center py-2">Your systems are solid. The next level is AI agents running on top of what you have built.</p>
-                )}
+                  )}
+                  {answers[2] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">Automated follow-up sequences</p>
+                      <p className="text-sm font-bold text-green-700">+20-30% estimate close rate</p>
+                    </div>
+                  )}
+                  {answers[3] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">Pipeline visibility</p>
+                      <p className="text-sm font-bold text-green-700">$2K-8K/mo recovered leads</p>
+                    </div>
+                  )}
+                  {answers[5] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">Automated reporting</p>
+                      <p className="text-sm font-bold text-green-700">10-15 hrs/mo owner time saved</p>
+                    </div>
+                  )}
+                  {answers[6] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">Lead source tracking</p>
+                      <p className="text-sm font-bold text-green-700">20-40% lower ad spend waste</p>
+                    </div>
+                  )}
+                  {answers[9] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">CRM-connected scheduling</p>
+                      <p className="text-sm font-bold text-green-700">+12-18% jobs booked</p>
+                    </div>
+                  )}
+                  {answers[10] !== true && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                      <p className="text-sm text-gray-700">AI agents on repetitive tasks</p>
+                      <p className="text-sm font-bold text-green-700">40-60% admin time reduced</p>
+                    </div>
+                  )}
+                  {missed.length > 0 && (
+                    <div className="pt-3 border-t border-gray-200">
+                      <div className="flex justify-between items-center">
+                        <p className="text-sm font-bold text-gray-900">Combined estimated impact</p>
+                        <p className="text-base font-extrabold text-green-700">
+                          {missed.length >= 5 ? '$5K-15K/mo' : missed.length >= 3 ? '$3K-8K/mo' : '$1K-4K/mo'} in recovered revenue
+                        </p>
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1">Based on industry averages for service businesses with 5-30 employees. Your actual results may vary.</p>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
+
+            {missed.length === 0 && (
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                <p className="text-sm font-bold text-green-800">Your systems are solid. 10 out of 10.</p>
+                <p className="text-xs text-green-600 mt-1">The next level is AI agents running on top of what you have built. Always optimizing, always finding the next edge.</p>
+              </div>
+            )}
 
             {/* Gaps found */}
             {missed.length > 0 && (
@@ -178,12 +218,31 @@ export default function GrowthScorecard() {
               </div>
             )}
 
-            {missed.length === 0 && (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-                <p className="text-sm font-bold text-green-800">You are ahead of the pack.</p>
-                <p className="text-xs text-green-600 mt-1">But there is always room to grow. Let us show you what AI agents can do on top of your existing systems.</p>
-              </div>
-            )}
+            {/* Save report */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <p className="text-sm font-bold text-gray-900 mb-1">Save your report</p>
+              <p className="text-xs text-gray-500 mb-3">We will email your results and follow up with a personalized analysis.</p>
+              {reportSent ? (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+                  <p className="text-sm font-medium text-green-800">Saved! We will be in touch.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSendReport} className="flex gap-2">
+                  <input
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    value={reportEmail}
+                    onChange={e => setReportEmail(e.target.value)}
+                    className="flex-1 rounded-lg border border-gray-200 px-4 py-2.5 text-sm bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent"
+                  />
+                  <button type="submit" disabled={sendingReport}
+                    className="px-5 py-2.5 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 disabled:opacity-50 transition-colors whitespace-nowrap">
+                    {sendingReport ? 'Saving...' : 'Save Report'}
+                  </button>
+                </form>
+              )}
+            </div>
 
             {/* Client statement */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
