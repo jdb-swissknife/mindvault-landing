@@ -561,6 +561,7 @@ export default function App() {
                 >
                   {loading ? 'Sending...' : 'Unlock All 8 Tools Free'}
                 </button>
+                <p className="text-center text-xs text-stone-400">We respect your inbox. Unsubscribe anytime. <a href="/privacy" className="underline hover:text-stone-600">Privacy Policy</a></p>
               </form>
             )}
           </div>
