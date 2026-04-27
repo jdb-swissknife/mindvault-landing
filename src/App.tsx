@@ -77,6 +77,7 @@ export default function App() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(() => localStorage.getItem('mv_submitted') === 'true')
   const [loading, setLoading] = useState(false)
+  const [wfFilter, setWfFilter] = useState('All')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -341,6 +342,64 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 text-center">
+            <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Ready-Made Workflows ── */}
+      <section id="workflows" className="bg-charcoal-900 border-y border-charcoal-700">
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">READY-MADE WORKFLOWS</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
+            Pick a workflow. We handle the rest.
+          </h2>
+          <p className="text-stone-400 text-center max-w-2xl mx-auto mb-6 leading-relaxed">
+            No building. No configuring. No tech skills required. Choose the automations your business needs and your AI workforce runs them from day one.
+          </p>
+          <div className="flex justify-center gap-3 mb-14 flex-wrap">
+            {['All', 'Leads', 'Communication', 'Scheduling', 'Revenue'].map((cat) => (
+              <button key={cat} onClick={() => setWfFilter(cat)} className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${wfFilter === cat ? 'bg-rust-500 text-white' : 'bg-charcoal-800 text-stone-400 border border-charcoal-700 hover:border-stone-500'}`}>
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: '⚡', name: 'Speed-to-Lead Response', desc: 'Replies to every new lead within 60 seconds. Asks the right questions. Books the appointment.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Auto — responds to every new email' },
+              { icon: '🔁', name: 'Lead Follow-Up Sequence', desc: 'Cold leads get re-engaged automatically at Day 3, Day 7, Day 14. No lead falls through.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Runs 3x daily' },
+              { icon: '🌿', name: 'Dead Lead Revival', desc: 'Monthly campaign that breathes life into old leads with a fresh angle or seasonal offer.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Weekly, every Monday' },
+              { icon: '⭐', name: 'Review Request', desc: 'After every completed job, your AI emails the customer with a direct Google review link.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
+              { icon: '📅', name: 'Appointment Reminders', desc: 'Sends 24-hour and 2-hour reminders. Reduces no-shows. Easy reschedule if needed.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Checks hourly' },
+              { icon: '💌', name: 'Post-Job Thank You', desc: 'Two hours after a job: thank you, next steps, and a gentle referral ask. Set it and forget it.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
+              { icon: '📆', name: 'Appointment Booking', desc: 'Detects when someone wants to schedule and proposes available times from your calendar.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto — detects booking intent' },
+              { icon: '🚨', name: 'Emergency Call Triage', desc: 'Burst pipe? No heat? Flags urgent keywords instantly and prioritizes the response.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto — priority flag on every email' },
+              { icon: '💰', name: 'Estimate Follow-Up', desc: 'Tracks every estimate you send. If no response in 3 days, your AI follows up with a check-in.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Runs daily at 10am' },
+            ].filter(wf => wfFilter === 'All' || wf.tag === wfFilter).map((wf) => (
+              <div key={wf.name} className="bg-charcoal-800 rounded-xl border border-charcoal-700 p-5 hover:border-stone-600 transition-colors">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-2xl">{wf.icon}</span>
+                    <span className="text-sm font-bold text-white">{wf.name}</span>
+                  </div>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${wf.tagColor}`}>{wf.tag}</span>
+                </div>
+                <p className="text-sm text-stone-400 leading-relaxed mb-4">{wf.desc}</p>
+                <div className="flex items-center gap-1.5 text-xs text-stone-500">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {wf.trigger}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-stone-400 text-sm mb-6">These are just the starting point. Your Mind<span className="text-rust-500">Vault</span> system learns your business and adapts every workflow over time.</p>
             <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
               Book Your Discovery Call
