@@ -231,7 +231,7 @@ export default function GrowthScorecard() {
                 <p className="text-sm text-gray-400 mb-5">
                   Book a 15-minute Growth Audit. We'll walk through each gap and show you exactly what to fix first. No pitch. Just a plan.
                 </p>
-                <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+                <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
                   className="inline-block w-full py-3.5 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
                   Book Your Growth Audit
                 </a>
@@ -244,7 +244,7 @@ export default function GrowthScorecard() {
                 <p className="text-sm text-gray-400 mb-4">
                   You've built great systems. AI agents can run on top of what you have, always optimizing, always finding the next edge.
                 </p>
-                <a href="https://cal.com/jbird/mindvault-discovery-call" target="_blank" rel="noopener noreferrer"
+                <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
                   className="inline-block w-full py-3.5 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
                   Book Your Growth Audit
                 </a>

@@ -166,7 +166,7 @@ export default function ReviewRequestGen() {
             </div>
 
             <div className="pt-4 text-center space-y-3">
-              <a href="https://cal.com/jbird/15min" target="_blank" rel="noopener noreferrer"
+              <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
                 className="block w-full py-3 rounded-lg bg-navy-900 text-white font-semibold text-sm hover:bg-navy-950 transition-colors">
                 Automate Review Requests with AI
               </a>
