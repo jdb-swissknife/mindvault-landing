@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { supabase } from './lib/supabase'
 import WizardCompanion from './WizardCompanion'
-import CalendlyPopup from './CalendlyPopup'
 
 // ── Logo ──────────────────────────────────────────────
 function Logo({ className = '' }: { className?: string }) {
@@ -115,11 +114,10 @@ export default function App() {
               className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Workflows</a>
             <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Tool Suite</a>
-            <CalendlyPopup>
-              <span className="text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors">
-                Book a Call
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors">
+              Book a Call
+            </a>
           </div>
         </div>
       </nav>
@@ -137,11 +135,10 @@ export default function App() {
             Mind<span className="text-rust-500">Vault</span> gives service businesses an AI workforce that responds to leads in 60 seconds, follows up on estimates, collects reviews, and books jobs automatically. Pick a workflow. We handle the rest.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
-            <CalendlyPopup>
-              <span className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-                Book Your Discovery Call
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+            </a>
             <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg border border-stone-500 text-stone-300 font-semibold text-sm hover:border-stone-400 hover:text-white transition-colors">
               Tool Suite
@@ -339,18 +336,17 @@ export default function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Scheduling & Booking</h3>
+                <h3 className="text-base font-bold text-onyx mb-1">Scheduling &amp; Booking</h3>
                 <p className="text-sm text-stone-600 leading-relaxed">Leads get booked directly onto your calendar. Estimates, follow-ups, and crew scheduling all handled automatically. No more back-and-forth texts.</p>
               </div>
             </div>
           </div>
           <div className="mt-12 text-center">
-            <CalendlyPopup>
-              <span className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-                Book Your Discovery Call
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>
@@ -404,12 +400,11 @@ export default function App() {
 
           <div className="mt-12 text-center">
             <p className="text-stone-400 text-sm mb-6">These are just the starting point. Your Mind<span className="text-rust-500">Vault</span> system learns your business and adapts every workflow over time.</p>
-            <CalendlyPopup>
-              <span className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-                Book Your Discovery Call
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>
@@ -442,12 +437,11 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 text-center">
-            <CalendlyPopup>
-              <span className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-                Book Your Discovery Call
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              Book Your Discovery Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>
@@ -595,11 +589,10 @@ export default function App() {
               <p className="text-sm font-bold text-onyx">Every tool has a premium version.</p>
               <p className="text-xs text-stone-500 mt-1">When you join MindVault Studio, your AI agents customize these tools to match your business. Your scripts. Your pricing. Your follow-up cadence. Or we build new ones from scratch.</p>
             </div>
-            <CalendlyPopup>
-              <span className="shrink-0 px-5 py-2.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
-                See Premium Tools
-              </span>
-            </CalendlyPopup>
+            <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+              className="shrink-0 px-5 py-2.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
+              See Premium Tools
+            </a>
           </div>
 
           {/* Email capture */}
@@ -700,12 +693,11 @@ export default function App() {
           <p className="text-stone-400 max-w-md mx-auto mb-8">
             30 minutes. No pitch. Just a straight look at where your operation is leaking. Book your discovery call today.
           </p>
-          <CalendlyPopup>
-            <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
-              Book Your Discovery Call
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </CalendlyPopup>
+          <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-rust-500 text-white font-bold text-sm hover:bg-rust-600 transition-colors">
+            Book Your Discovery Call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
           <p className="text-xs text-stone-500 mt-4">30-minute discovery call. No pressure. Minneapolis, MN. Nationwide.</p>
           <p className="text-sm text-stone-400 mt-3">
             Prefer to call? <a href="tel:+16124407465" className="text-rust-500 hover:text-rust-600 transition-colors font-medium">612-440-7465</a>
