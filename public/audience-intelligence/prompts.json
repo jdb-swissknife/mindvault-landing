@@ -1,0 +1,227 @@
+[
+  {
+    "id": 0,
+    "name": "Deep Desires",
+    "color": "#c4622d",
+    "dot": "c1",
+    "desc": "Uncover what your audience truly wants  -  the real outcomes beneath the surface request.",
+    "platforms": [
+      {
+        "name": "Reddit",
+        "icon": "🔴",
+        "prompts": [
+          "Search Reddit for the most upvoted threads in subreddits where [NICHE] people gather (e.g. r/[niche], r/[niche]advice, r/[niche]beginners).\n\nRead the top 20 posts and their comments. Identify:\n1. The specific outcomes they fantasize about (not just goals  -  the deeper life change)\n2. What \"success\" looks like in their own words\n3. The identity transformation they're seeking (\"I want to become someone who…\")\n4. Any aspirational language, dream scenarios, or bucket-list moments they describe\n\nFormat your findings as a \"Deep Desires Map\" with direct quotes.",
+          "Go deep on Reddit AMA (Ask Me Anything) threads, success story posts, and \"I finally did it\" posts for [NICHE].\n\nExtract the emotional language people use when they've achieved what they wanted. What do they say they feel? What do they say changed in their life? What do they wish they'd known sooner?\n\nThis reveals the true desired outcome, not just the surface goal."
+        ]
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "💼",
+        "prompts": [
+          "Search LinkedIn for posts from [NICHE] professionals that have 500+ likes or lots of comments.\n\nFocus on posts that start with \"I finally…\", \"After X years…\", \"Nobody talks about this but…\", or \"The real reason I…\"\n\nFrom these posts, extract:\n1. The deeper desires behind their professional goals\n2. Status and recognition desires (what do they want to be seen as?)\n3. The gap between their current reality and dream state\n4. Language patterns that signal deep motivation"
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "𝕏",
+        "prompts": [
+          "Search X/Twitter for posts from [NICHE] communities using queries like:\n\"I wish I could [niche topic]\" OR \"dream of [niche topic]\" OR \"someday I'll [niche topic]\" OR \"can't wait to [niche topic]\"\n\nAlso search for high-engagement posts (lots of RTs/likes) in [NICHE] spaces.\n\nIdentify:\n1. Recurring aspirational themes\n2. \"Dream life\" language\n3. What achievements they celebrate publicly (shows what they truly value)"
+        ]
+      },
+      {
+        "name": "YouTube",
+        "icon": "▶️",
+        "prompts": [
+          "Find the top 10 most-viewed YouTube videos about [NICHE]. Read through the comment sections carefully.\n\nLook specifically for:\n1. Comments describing why this topic matters to them personally\n2. \"This video changed my life because…\" type comments\n3. Questions that reveal deeper desires beneath the surface topic\n4. Comments about transformation (\"I used to be X, now I want to be Y\")\n\nExtract the emotional core  -  what are they really after?"
+        ]
+      },
+      {
+        "name": "Quora",
+        "icon": "Q",
+        "prompts": [
+          "Search Quora for questions related to [NICHE] that start with \"How do I become…\", \"What does it feel like to…\", \"Is it possible to…\", \"What's the best way to achieve…\"\n\nRead the top answers AND the comments on those answers.\n\nMap out:\n1. The specific aspirational scenarios people describe\n2. The life circumstances they believe will improve once they achieve their goal\n3. Social/identity desires (impressing others, proving something, belonging)\n4. Timeline expectations  -  when do they want this by, and why?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Fears & Frustrations",
+    "color": "#5b6af0",
+    "dot": "c2",
+    "desc": "Surface the anxieties, pain points, and late-night worries keeping your audience stuck.",
+    "platforms": [
+      {
+        "name": "Reddit",
+        "icon": "🔴",
+        "prompts": [
+          "Search Reddit for complaint, rant, and venting posts from [NICHE] communities.\n\nLook for threads titled \"I'm so frustrated with…\", \"Why is [topic] so hard?\", \"Am I the only one who…\", \"Rant:\", or \"I give up on…\"\n\nExtract:\n1. The specific situations that trigger the most frustration\n2. The emotions described (shame, embarrassment, fear of judgment, fear of failure)\n3. The stories behind the frustration  -  what led up to it?\n4. What they've already tried that hasn't worked (reveals depth of problem)\n\nInclude direct quotes. Note which frustrations appear repeatedly across multiple posts.",
+          "Search Reddit for [NICHE] posts where people describe their \"worst case scenario\" fears or reasons they haven't started / given up.\n\nPosts like \"Why I quit [niche]\", \"Why I never started [niche]\", \"The reason most people fail at [niche]\"\n\nMap the fear landscape: fear of failure, fear of judgment, fear of wasting money, fear of not being good enough, fear of it being too late."
+        ]
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "💼",
+        "prompts": [
+          "Search LinkedIn for [NICHE] posts about challenges, failures, and lessons learned.\n\nLook for posts with phrases like \"I failed at…\", \"My biggest mistake in [niche] was…\", \"What nobody tells you about [niche]…\", \"The hardest part of [niche] is…\"\n\nExtract:\n1. The professional fears (being judged, falling behind, making the wrong choice)\n2. Frustrations with the industry/space itself\n3. Imposter syndrome and self-doubt patterns\n4. The specific failure moments that are most emotionally resonant"
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "𝕏",
+        "prompts": [
+          "Search X/Twitter for [NICHE]-related complaints, frustrations, and venting using:\n\"hate that [niche topic]\" OR \"annoyed by [niche topic]\" OR \"why is [niche] so [hard/expensive/confusing]\" OR \"struggling with [niche topic]\"\n\nNote: capture the raw, unfiltered frustration that people express in short-form. This is where people say things they wouldn't write in a blog post.\n\nCompile a \"Wall of Frustrations\"  -  the rawest, most emotional language you find."
+        ]
+      },
+      {
+        "name": "YouTube",
+        "icon": "▶️",
+        "prompts": [
+          "Find YouTube videos about [NICHE] that have titles like \"Why I quit…\", \"My honest review after X months…\", \"The truth about [niche]…\", \"Is [niche] worth it?\", or \"I failed at [niche] because…\"\n\nRead the comment sections of these videos. Focus on:\n1. People sharing their own failure stories\n2. Fears about starting or continuing\n3. Complaints about cost, time, complexity, or social judgment\n4. The emotional weight people attach to this topic"
+        ]
+      },
+      {
+        "name": "Quora",
+        "icon": "Q",
+        "prompts": [
+          "Search Quora for questions about [NICHE] that contain fear or frustration language:\n\"Is it too late to…\", \"Why do so many people fail at [niche]?\", \"What are the biggest mistakes in [niche]?\", \"Should I give up on [niche]?\", \"Is [niche] worth the struggle?\"\n\nRead both the questions AND the detailed answers for emotional content.\n\nCategorize fears by type: financial, social/judgment, competence, timing, worthiness.\nNote which fears are most common and most emotionally intense."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Language & Phrases",
+    "color": "#2ebd7e",
+    "dot": "c3",
+    "desc": "Capture the exact words, phrases, and vocabulary your audience uses  -  use their language in your copy.",
+    "platforms": [
+      {
+        "name": "Reddit",
+        "icon": "🔴",
+        "prompts": [
+          "Read through 30–50 posts and comments in [NICHE] subreddits. Your only job is to collect language.\n\nCapture:\n1. Slang, abbreviations, and insider terms unique to [NICHE] community\n2. The exact phrases used to describe their problem (not generic words  -  their words)\n3. Metaphors and analogies they reach for\n4. How they describe the \"before\" state vs. the \"after\" state\n5. Emotionally charged words that appear repeatedly\n\nOutput a glossary of [NICHE] language with example sentences from actual posts.",
+          "Find the highest-voted comments in [NICHE] Reddit threads  -  these are the phrases the community resonates with most strongly.\n\nWhat specific wording gets upvoted? This tells you which language lands vs. which falls flat. Copy the top 20 highest-karma comments verbatim. Then identify the linguistic patterns: sentence structure, word choice, tone."
+        ]
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "💼",
+        "prompts": [
+          "Search LinkedIn for high-engagement posts (1000+ reactions) in [NICHE] space.\n\nAnalyze the specific language patterns of the posts that perform best:\n1. How do they open? (First line hooks)\n2. What transition phrases do they use?\n3. What power words appear repeatedly in viral posts?\n4. How do they frame problems vs. solutions?\n5. What calls-to-action get the most comments?\n\nCreate a \"LinkedIn Voice Guide\" for [NICHE] based on what actually works."
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "𝕏",
+        "prompts": [
+          "Find the most viral tweets (500+ RTs or likes) in the [NICHE] space over the past 12 months.\n\nCollect the exact language of the top 25 tweets. Analyze:\n1. Opening hooks  -  what first lines get people to stop scrolling?\n2. Specific vocabulary that resonates (words that appear in multiple viral tweets)\n3. Sentence length patterns\n4. How they describe the transformation or insight\n5. Any specific phrases that get quoted in replies\n\nThis is your [NICHE] copywriting swipe file."
+        ]
+      },
+      {
+        "name": "YouTube",
+        "icon": "▶️",
+        "prompts": [
+          "Look at the titles and thumbnails of the top 50 most-viewed YouTube videos in [NICHE].\n\nExtract:\n1. Power words used in titles (which words appear most frequently in high-view titles?)\n2. Number-based vs. question-based vs. statement titles  -  which dominate?\n3. Thumbnail text patterns (short phrases that stop the scroll)\n4. Comment language  -  how do viewers describe what they got from the video?\n\nThen read comments on 3–5 top videos and pull out phrases that appear in 10+ comments. These are the shared vocabulary of your [NICHE] audience."
+        ]
+      },
+      {
+        "name": "Quora",
+        "icon": "Q",
+        "prompts": [
+          "Find the most-upvoted answers on Quora about [NICHE] topics.\n\nPay close attention to language in:\n1. How questions are worded (the words people use to frame their own problems)\n2. The opening lines of top answers (what framing gets immediate upvotes?)\n3. Analogies and comparisons used in explanations\n4. The specific \"aha moment\" language in long answers\n\nCreate a vocabulary map: words used by beginners vs. intermediate vs. advanced [NICHE] people. This tells you how to speak to each audience segment."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Objections",
+    "color": "#d4a017",
+    "dot": "c4",
+    "desc": "Identify every belief, doubt, and hesitation blocking your audience from buying or committing.",
+    "platforms": [
+      {
+        "name": "Reddit",
+        "icon": "🔴",
+        "prompts": [
+          "Search Reddit for posts where [NICHE] people express skepticism, doubt, or reasons NOT to do something related to [niche topic].\n\nLook for: \"Is [product/service/approach] worth it?\", \"Why I didn't buy…\", \"Scam?\", \"Red flags in [niche]\", \"Overrated?\", \"Should I even bother with [niche]?\"\n\nCompile every objection mentioned and categorize by type:\n- Price objections (\"too expensive\", \"not worth it\")\n- Time objections (\"takes too long\", \"don't have time\")\n- Trust objections (\"feels like a scam\", \"who can you trust?\")\n- Self-efficacy (\"I'm not good enough\", \"this won't work for me\")\n- Timing objections (\"maybe next year\", \"not ready yet\")\n\nNote which objection categories appear most frequently.",
+          "Search for [NICHE] \"review\" and \"experience\" posts on Reddit where people describe why they almost didn't buy/start, or why they quit partway through.\n\nThe \"I almost gave up because…\" and \"I was skeptical at first because…\" posts contain your most valuable objection data  -  these are real barriers from real people who ultimately did engage."
+        ]
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "💼",
+        "prompts": [
+          "Search LinkedIn for [NICHE] posts and articles that address common misconceptions or myths.\n\nPosts titled \"The truth about [niche topic]\", \"Stop believing [niche myth]\", \"Why [niche conventional wisdom] is wrong\"  -  these posts exist because the author knows what objections their audience holds.\n\nExtract every misconception or objection mentioned in:\n1. The post itself\n2. The comments (especially pushback comments  -  pure objections)\n3. Questions in the comments\n\nMap these to your offer: which of these objections apply to what you're selling?"
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "𝕏",
+        "prompts": [
+          "Search X/Twitter for skeptical or contrarian takes on [NICHE] topics.\n\nQueries: \"overrated [niche topic]\" OR \"unpopular opinion [niche]\" OR \"nobody talks about the downside of [niche]\" OR \"I tried [niche thing] and…\"\n\nAlso search for reply threads where people push back on [NICHE] advice  -  the objections in replies are unfiltered and direct.\n\nCompile a \"Skeptic's Voice\"  -  the exact language of non-believers in your niche. This is what you need to overcome."
+        ]
+      },
+      {
+        "name": "YouTube",
+        "icon": "▶️",
+        "prompts": [
+          "Find YouTube videos about [NICHE] products, programs, or approaches titled \"Honest review\", \"Is it worth it?\", \"Before you buy…\", \"I tried X for 30 days…\", or \"[Niche thing]  -  the good, bad, and ugly.\"\n\nThese videos and their comments are objection gold. Extract:\n1. Every negative point raised (price, difficulty, results, time, etc.)\n2. Comments defending the objections (\"he's right, I had the same problem\")\n3. Comments overcoming objections (\"I thought this too but then…\")\n4. The specific deal-breakers that make people say \"not for me\""
+        ]
+      },
+      {
+        "name": "Quora",
+        "icon": "Q",
+        "prompts": [
+          "Search Quora for comparison and decision questions about [NICHE]:\n\"[Option A] vs [Option B] for [niche]?\", \"Is [niche approach] worth the investment?\", \"What are the downsides of [niche topic]?\", \"Why do people fail at [niche]?\"\n\nRead the top answers carefully  -  both the pro AND con arguments.\n\nBuild an objection matrix:\n| Objection | How common (1-5) | Emotional intensity (1-5) | How it's currently addressed |\n\nThis matrix shows you which objections to prioritize in your messaging."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Content & Messaging",
+    "color": "#9b5de5",
+    "dot": "c5",
+    "desc": "Discover the content gaps, hooks, and messaging angles that will resonate and convert.",
+    "platforms": [
+      {
+        "name": "Reddit",
+        "icon": "🔴",
+        "prompts": [
+          "Analyze the top 50 posts (by upvotes) in [NICHE] subreddits over the past 6 months.\n\nIdentify:\n1. Content formats that get the most engagement (guides, stories, questions, images, data)\n2. The specific topics that consistently generate high engagement\n3. \"Information gaps\"  -  questions that get lots of upvotes but few good answers (content opportunities)\n4. Posts that people save and reference repeatedly\n5. Seasonal or recurring topics (things people ask about at the same time every year)\n\nOutput a content calendar framework for [NICHE] based on what Reddit actually responds to.",
+          "Search Reddit for [NICHE] posts that start with \"Nobody talks about…\", \"Unpopular opinion:\", \"Hot take:\", or \"Controversial: …\"\n\nThese posts reveal:\n1. The contrarian angles that create conversation\n2. Topics the mainstream [NICHE] content avoids (your differentiation opportunity)\n3. What the audience is hungry to discuss but hasn't found the right space for\n4. The \"forbidden\" or taboo topics in [NICHE] that drive massive engagement when addressed"
+        ]
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "💼",
+        "prompts": [
+          "Search LinkedIn for [NICHE] content creators/thought leaders with 10K+ followers.\n\nAnalyze their last 20 posts:\n1. Which posts got 3x their average engagement? What was the topic/angle?\n2. What content formats dominate (personal story, data/stats, list, question, contrarian take)?\n3. What topics generate the most comments (not just likes  -  comments mean deeper resonance)?\n4. What gaps exist  -  what questions do commenters raise that aren't being answered?\n\nBuild a content strategy brief: \"For [NICHE] on LinkedIn, these X topics + Y formats = highest engagement.\""
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "𝕏",
+        "prompts": [
+          "Find the top [NICHE] accounts on X/Twitter (10K+ followers relevant to [niche]).\n\nFor each account, find their 5 most viral posts (most RTs/likes). Analyze across all accounts:\n1. What topic categories appear most in viral content?\n2. What hooks (first lines) consistently perform?\n3. Is there a content angle that one creator uses that no others have tried?\n4. What threads vs. single tweets perform best, and why?\n\nCreate a \"viral content matrix\" for [NICHE] on X: Topic × Format × Angle = Predicted Performance."
+        ]
+      },
+      {
+        "name": "YouTube",
+        "icon": "▶️",
+        "prompts": [
+          "Analyze the YouTube search ecosystem for [NICHE]:\n\nStep 1  -  Search [NICHE] core topic. Note the top 10 results: titles, view counts, publish dates, like counts.\nStep 2  -  Check \"People also search for\" suggestions after each search.\nStep 3  -  Read comment questions on top videos (these are unanswered content needs).\nStep 4  -  Search \"[NICHE] for beginners\", \"[NICHE] mistakes\", \"[NICHE] tips\", \"[NICHE] 2024/2025\"\n\nOutput:\n1. Top 10 proven content topics (already validated by views)\n2. Top 5 underserved content gaps (questions asked in comments with no dedicated video)\n3. The hook/title formulas that get clicks in [NICHE]"
+        ]
+      },
+      {
+        "name": "Quora",
+        "icon": "Q",
+        "prompts": [
+          "Search Quora for [NICHE] questions that have: (a) been viewed 10,000+ times but (b) have fewer than 5 good answers.\n\nThese are your highest-value content opportunities  -  high demand, low supply.\n\nAlso search for questions where the answers are outdated (3+ years old). [NICHE] audiences often need updated takes on older questions.\n\nFinally, find the [NICHE] questions that have 50+ \"followers\" (people waiting for an answer). These represent real, active content demand.\n\nCompile a \"Content Opportunity Matrix\" ranked by demand × supply gap."
+        ]
+      }
+    ]
+  }
+]

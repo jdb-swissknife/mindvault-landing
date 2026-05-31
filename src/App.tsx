@@ -454,12 +454,33 @@ export default function App() {
             Grab and try free tools now.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
-            Every tool below is free to use right now. When you join MindVault Studio, your AI agents unlock premium versions customized for your business.
+            Every tool below is free to use right now. Start with the Audience Intelligence Engine to validate the market, then use the rest to tighten lead response, follow-up, and operations.
           </p>
           <p className="mt-2 text-sm font-semibold text-rust-500">Your agents can customize these. Or build new ones from scratch.</p>
 
-          {/* Growth Scorecard Hero Card */}
+          {/* Audience Intelligence Hero Card */}
           <div className="mt-10">
+            <a href="/audience-intelligence/index.html"
+              className="group block bg-charcoal-900 rounded-2xl p-8 hover:bg-charcoal-800 transition-all hover:shadow-lg border border-rust-500/40">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-rust-500 flex items-center justify-center text-3xl">
+                  ✦
+                </div>
+                <div className="flex-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-rust-500 text-white text-xs font-bold uppercase tracking-wider mb-2">Featured Free Tool</span>
+                  <h3 className="text-2xl font-extrabold text-white mb-1">Audience Intelligence Engine</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed max-w-xl">Validate a business idea before you build. Find what your market already wants, fears, says, and buys from real public conversations.</p>
+                </div>
+                <div className="hidden sm:flex items-center text-rust-500 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                  Start researching
+                  <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Growth Scorecard Hero Card */}
+          <div className="mt-6">
             <a href={submitted ? "#/growth-scorecard" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
               className="group block bg-charcoal-900 rounded-2xl p-8 hover:bg-charcoal-800 transition-all hover:shadow-lg">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
@@ -469,7 +490,7 @@ export default function App() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-rust-500 text-white text-xs font-bold uppercase tracking-wider mb-2">Start Here</span>
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-stone-700 text-white text-xs font-bold uppercase tracking-wider mb-2">Start Here</span>
                   <h3 className="text-2xl font-extrabold text-white mb-1">Growth Scorecard</h3>
                   <p className="text-sm text-gray-400 leading-relaxed max-w-xl">10 questions. 60 seconds. See exactly where your business is losing money and get a personalized action plan to fix it.</p>
                 </div>
@@ -587,7 +608,7 @@ export default function App() {
           <div className="mt-8 rounded-lg bg-white border border-sand-300 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex-1">
               <p className="text-sm font-bold text-onyx">Every tool has a premium version.</p>
-              <p className="text-xs text-stone-500 mt-1">When you join MindVault Studio, your AI agents customize these tools to match your business. Your scripts. Your pricing. Your follow-up cadence. Or we build new ones from scratch.</p>
+              <p className="text-xs text-stone-500 mt-1">When you join Mind<span className="text-rust-500">Vault</span> Studio, your AI agents customize these tools to match your business. Your scripts. Your pricing. Your follow-up cadence. Or we build new ones from scratch.</p>
             </div>
             <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
               className="shrink-0 px-5 py-2.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
@@ -597,8 +618,8 @@ export default function App() {
 
           {/* Email capture */}
           <div id="lead-capture" className="mt-10 max-w-md">
-            <p className="text-sm font-bold text-onyx mb-1">Unlock All 8 Tools Free</p>
-            <p className="text-xs text-stone-500 mb-3">Drop your email. Use every tool right now, no strings attached. See what MindVault is about before you ever talk to us.</p>
+            <p className="text-sm font-bold text-onyx mb-1">Unlock All 9 Tools Free</p>
+            <p className="text-xs text-stone-500 mb-3">Drop your email. Use every tool right now, no strings attached. See what Mind<span className="text-rust-500">Vault</span> is about before you ever talk to us.</p>
             {submitted ? (
               <div className="bg-charcoal-900 rounded-lg p-4 text-center">
                 <p className="text-sm text-white font-bold">You're in! Scroll up and try any tool.</p>
@@ -618,7 +639,7 @@ export default function App() {
                   disabled={loading}
                   className="w-full py-3 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 disabled:opacity-50 transition-colors"
                 >
-                  {loading ? 'Sending...' : 'Unlock All 8 Tools Free'}
+                  {loading ? 'Sending...' : 'Unlock All 9 Tools Free'}
                 </button>
                 <p className="text-center text-xs text-stone-400">We respect your inbox. Unsubscribe anytime. <a href="/privacy" className="underline hover:text-stone-600">Privacy Policy</a></p>
               </form>
