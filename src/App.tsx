@@ -59,6 +59,20 @@ function TypewriterText({ text }: { text: string }) {
 // ── Main App ──────────────────────────────────────────
 export default function App() {
   const demoRef = useRef<HTMLIFrameElement>(null)
+  const demoLoadedRef = useRef(false)
+  const demoVisibleRef = useRef(false)
+  const demoStartedRef = useRef(false)
+
+  const startDemoWhenReady = () => {
+    const frame = demoRef.current
+    if (!frame || !demoLoadedRef.current || !demoVisibleRef.current || demoStartedRef.current) return
+
+    demoStartedRef.current = true
+    const sendStart = () => frame.contentWindow?.postMessage('startDemo', '*')
+    sendStart()
+    setTimeout(sendStart, 250)
+    setTimeout(sendStart, 750)
+  }
 
   useEffect(() => {
     const frame = demoRef.current
@@ -66,11 +80,12 @@ export default function App() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          frame.contentWindow?.postMessage('startDemo', '*')
+          demoVisibleRef.current = true
+          startDemoWhenReady()
           observer.unobserve(entry.target)
         }
       })
-    }, { threshold: 0.3 })
+    }, { threshold: 0.25 })
     observer.observe(frame)
     return () => observer.disconnect()
   }, [])
@@ -110,8 +125,8 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
           <div className="flex items-center gap-6">
-            <a href="#workflows" onClick={e => { e.preventDefault(); document.getElementById('workflows')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Workflows</a>
+            <a href="#how-it-works" onClick={e => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">How It Works</a>
             <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="text-sm font-medium text-stone-400 hover:text-white transition-colors hidden sm:inline">Tool Suite</a>
             <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
@@ -125,23 +140,23 @@ export default function App() {
       {/* ── Hero ── */}
       <section className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 pt-20 pb-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6 h-5" aria-label="AI Workforce for Service Businesses">
-            <TypewriterText text="AI Workforce for Service Businesses" />
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-6 h-5" aria-label="Growth Operating System for Service Businesses">
+            <TypewriterText text="Growth Operating System for Service Businesses" />
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Your next hire works 24/7 and never misses those expensive leads.
+            Grow without letting the back office break.
           </h1>
           <p className="mt-8 text-stone-400 max-w-2xl leading-relaxed">
-            Mind<span className="text-rust-500">Vault</span> gives service businesses an AI workforce that responds to leads in 60 seconds, follows up on estimates, collects reviews, and books jobs automatically. Pick a workflow. We handle the rest.
+            Mind<span className="text-rust-500">Vault</span> helps service businesses answer faster, follow up on time, keep the calendar moving, and see where money is slipping through the cracks.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
               Book Your Discovery Call
             </a>
-            <a href="#free-tools" onClick={e => { e.preventDefault(); document.getElementById('free-tools')?.scrollIntoView({ behavior: 'smooth' }) }}
+            <a href="#how-it-works" onClick={e => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg border border-stone-500 text-stone-300 font-semibold text-sm hover:border-stone-400 hover:text-white transition-colors">
-              Tool Suite
+              See How It Works
             </a>
           </div>
         </div>
@@ -152,8 +167,8 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-center">
             <div className="text-center sm:text-left">
-              <p className="text-3xl font-extrabold text-rust-500">142</p>
-              <p className="text-sm text-stone-400 mt-1">Jobs handled this month</p>
+              <p className="text-3xl font-extrabold text-rust-500">Faster</p>
+              <p className="text-sm text-stone-400 mt-1">Lead response, follow-up, and handoffs</p>
             </div>
             <div className="border-t sm:border-t-0 sm:border-l border-charcoal-600 pt-4 sm:pt-0 sm:pl-6">
               <p className="text-sm text-stone-400 italic leading-relaxed">
@@ -173,12 +188,16 @@ export default function App() {
           <div className="mx-auto" style={{ maxWidth: '360px' }}>
             <iframe
               ref={demoRef}
-              src="https://mindvaultstudio.net/demo.html"
+              src="/demo.html"
               title="MindVault Demo"
               width="100%"
               height="680"
               frameBorder="0"
               allowFullScreen
+              onLoad={() => {
+                demoLoadedRef.current = true
+                startDemoWhenReady()
+              }}
               style={{ borderRadius: '8px' }}
             />
           </div>
@@ -191,31 +210,34 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">THE PROBLEM</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
-            Your CRM works great. Here's what it doesn't do.
+            Most lost revenue does not come from bad service. It comes from dropped follow-up.
           </h2>
+          <p className="mt-5 text-stone-600 max-w-2xl leading-relaxed">
+            The business grows, but the system behind it does not. That is when good demand starts turning into back office chaos.
+          </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Website leads go to an email and then nothing happens</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">New leads sit too long</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                They fill out the form, hit your inbox, and sit there. No auto-reply. No follow-up sequence. Just silence until someone remembers to check. By then, they've already called your competitor.
+                A form gets filled out, a call gets missed, or a text comes in after hours. If nobody touches it fast, that job starts shopping somewhere else.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Your reports get printed on paper and handed to you</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Estimates go quiet</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Someone in your office spends hours pulling data from your CRM every month. Revenue by category. Sales by source. All so you can dig through it looking for answers you should already have.
+                You did the hard part and got in the door. Then the quote sits too long, the prospect cools off, and nobody is sure who was supposed to follow up.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Everyone has to do their part or the whole chain breaks</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">Missed calls never get recovered</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Your CRM is only as good as the people using it. When someone forgets to log a lead or skips a follow-up, that job disappears. With 40 employees, something always gets missed.
+                One missed ring can turn into a lost job when there is no fast text-back and no clean handoff into the follow-up queue.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-onyx mb-2">Hiring more people doesn't fix manual processes</h3>
+              <h3 className="text-lg font-bold text-onyx mb-2">The owner becomes the safety net</h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                You brought on 3 people in the office and the same leads still slip through. More bodies doing manual work isn't the answer. The process itself needs to change.
+                When the process is weak, the owner becomes the backup system. That works for a while. Then it becomes the thing that limits growth.
               </p>
             </div>
           </div>
@@ -223,56 +245,45 @@ export default function App() {
       </section>
 
       {/* ── The Fix ── */}
-      <section className="bg-charcoal-900 text-white">
+      <section id="how-it-works" className="bg-charcoal-900 text-white">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">THE FIX</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            We find the bottleneck.<br />We build the system. You grow.
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">HOW IT WORKS</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight max-w-3xl">
+            We install the system that keeps the easy money from leaking out.
           </h2>
-          <div className="mt-14 space-y-0">
-            {/* Step 1 */}
-            <div className="flex gap-6 sm:gap-10 py-8 border-b border-charcoal-700">
-              <div className="text-3xl font-extrabold text-rust-500 shrink-0 w-10">01</div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-1">WEEK 1</p>
-                <h3 className="text-xl font-bold mb-2">We find where the money is leaking</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
-                  We look at how leads come in, who responds, what falls through. In one call, we pinpoint the exact spot where jobs are being lost.
-                </p>
-              </div>
+          <p className="mt-5 text-stone-400 max-w-2xl leading-relaxed">
+            Start where the pain is highest. Usually lead response, missed calls, estimate follow-up, scheduling reminders, or review requests.
+          </p>
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-charcoal-800 rounded-2xl p-6 border border-charcoal-700 border-t-4 border-t-rust-500">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">01. Catch</p>
+              <h3 className="text-2xl font-extrabold mb-4">Catch</h3>
+              <ul className="space-y-3 text-sm text-stone-400 leading-relaxed">
+                <li>New leads</li>
+                <li>Missed calls</li>
+                <li>Stale estimates</li>
+                <li>Review opportunities</li>
+              </ul>
             </div>
-            {/* Step 2 */}
-            <div className="flex gap-6 sm:gap-10 py-8 border-b border-charcoal-700">
-              <div className="text-3xl font-extrabold text-rust-500 shrink-0 w-10">02</div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-1">WEEK 2</p>
-                <h3 className="text-xl font-bold mb-2">We build your system</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
-                  Every lead gets an instant response from your AI. Every estimate gets a follow-up sequence. Every missed call gets a text back. Custom to your business, your scripts, your pricing.
-                </p>
-              </div>
+            <div className="bg-charcoal-800 rounded-2xl p-6 border border-charcoal-700 border-t-4 border-t-rust-500">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">02. Handle</p>
+              <h3 className="text-2xl font-extrabold mb-4">Handle</h3>
+              <ul className="space-y-3 text-sm text-stone-400 leading-relaxed">
+                <li>Fast replies</li>
+                <li>Timed follow-up</li>
+                <li>Scheduling reminders</li>
+                <li>Review requests</li>
+              </ul>
             </div>
-            {/* Step 3 */}
-            <div className="flex gap-6 sm:gap-10 py-8 border-b border-charcoal-700">
-              <div className="text-3xl font-extrabold text-rust-500 shrink-0 w-10">03</div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-1">WEEK 3-4</p>
-                <h3 className="text-xl font-bold mb-2">It runs. You watch the numbers move.</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
-                  Your dashboard shows every lead, every response time, every booked job. You see the ROI in real time. No guessing.
-                </p>
-              </div>
-            </div>
-            {/* Step 4 */}
-            <div className="flex gap-6 sm:gap-10 py-8">
-              <div className="text-3xl font-extrabold text-rust-500 shrink-0 w-10">04</div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-1">ONGOING</p>
-                <h3 className="text-xl font-bold mb-2">We handle the next bottleneck</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
-                  Lead response is where we start. Once that's tight, your AI Foreman grows into scheduling, reviews, billing, customer retention. One problem at a time, until your operation runs clean.
-                </p>
-              </div>
+            <div className="bg-charcoal-800 rounded-2xl p-6 border border-charcoal-700 border-t-4 border-t-rust-500">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">03. Show</p>
+              <h3 className="text-2xl font-extrabold mb-4">Show</h3>
+              <ul className="space-y-3 text-sm text-stone-400 leading-relaxed">
+                <li>What came in</li>
+                <li>What got handled</li>
+                <li>What needs a human today</li>
+                <li>Where money is getting stuck</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -281,9 +292,9 @@ export default function App() {
       {/* ── What You Get (Value Stack) ── */}
       <section className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MIND<span className="text-onyx">VAULT</span></p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MIND<span className="text-rust-500">VAULT</span></p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
-            Everything your AI Foreman handles. From day one.
+            What the system handles from day one.
           </h2>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="flex gap-4">
@@ -292,7 +303,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Instant Lead Response</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Every call, form fill, and text gets a response in under 90 seconds. 24 hours a day, 7 days a week. Never lose a lead to voicemail again.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">Every call, form fill, and text gets a fast response. Nights and weekends included. Do not lose a good lead to voicemail again.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -310,7 +321,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Real-Time Dashboard</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">See every lead, every response time, every booked job. Track ROI down to the dollar. Know exactly what your AI Foreman is doing, anytime.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">See every lead, every response time, every booked job, and every handoff that still needs a human. Know what is moving and what is stuck.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -319,7 +330,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Missed Call Text-Back</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Every missed call automatically gets a text within 60 seconds. "Hey, saw I missed your call. Are you looking for a roofing estimate?" Job saved.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">Every missed call gets a fast text-back and a clean recovery path. A hot lead should not disappear because the team was busy.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -328,7 +339,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Automated Review Collection</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">When jobs complete, your AI sends review requests via text and email. Build your Google reputation on autopilot while you focus on the next job.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">When jobs complete, the system sends review requests by text and email. Build your Google reputation while the team focuses on the next job.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -337,7 +348,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Scheduling &amp; Booking</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Leads get booked directly onto your calendar. Estimates, follow-ups, and crew scheduling all handled automatically. No more back-and-forth texts.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">Leads get booked directly onto your calendar. Estimates, follow-ups, and crew scheduling stay moving without the usual back-and-forth texts.</p>
               </div>
             </div>
           </div>
@@ -356,10 +367,10 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">READY-MADE WORKFLOWS</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
-            Pick a workflow. We handle the rest.
+            Start with the workflow where money is leaking first.
           </h2>
           <p className="text-stone-400 text-center max-w-2xl mx-auto mb-6 leading-relaxed">
-            No building. No configuring. No tech skills required. Choose the automations your business needs and your AI workforce runs them from day one.
+            These are the common starting points. We install the first one, tighten it, then expand once the first win is working in the real world.
           </p>
           <div className="flex justify-center gap-3 mb-14 flex-wrap">
             {['All', 'Leads', 'Communication', 'Scheduling', 'Revenue'].map((cat) => (
@@ -371,15 +382,15 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: '⚡', name: 'Speed-to-Lead Response', desc: 'Replies to every new lead within 60 seconds. Asks the right questions. Books the appointment.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Auto — responds to every new email' },
+              { icon: '⚡', name: 'Speed-to-Lead Response', desc: 'Replies to every new lead fast. Asks the right questions. Books the appointment.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Auto, responds to every new email' },
               { icon: '🔁', name: 'Lead Follow-Up Sequence', desc: 'Cold leads get re-engaged automatically at Day 3, Day 7, Day 14. No lead falls through.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Runs 3x daily' },
               { icon: '🌿', name: 'Dead Lead Revival', desc: 'Monthly campaign that breathes life into old leads with a fresh angle or seasonal offer.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Weekly, every Monday' },
-              { icon: '⭐', name: 'Review Request', desc: 'After every completed job, your AI emails the customer with a direct Google review link.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
+              { icon: '⭐', name: 'Review Request', desc: 'After every completed job, the system emails the customer with a direct Google review link.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
               { icon: '📅', name: 'Appointment Reminders', desc: 'Sends 24-hour and 2-hour reminders. Reduces no-shows. Easy reschedule if needed.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Checks hourly' },
               { icon: '💌', name: 'Post-Job Thank You', desc: 'Two hours after a job: thank you, next steps, and a gentle referral ask. Set it and forget it.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
-              { icon: '📆', name: 'Appointment Booking', desc: 'Detects when someone wants to schedule and proposes available times from your calendar.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto — detects booking intent' },
-              { icon: '🚨', name: 'Emergency Call Triage', desc: 'Burst pipe? No heat? Flags urgent keywords instantly and prioritizes the response.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto — priority flag on every email' },
-              { icon: '💰', name: 'Estimate Follow-Up', desc: 'Tracks every estimate you send. If no response in 3 days, your AI follows up with a check-in.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Runs daily at 10am' },
+              { icon: '📆', name: 'Appointment Booking', desc: 'Detects when someone wants to schedule and proposes available times from your calendar.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto, detects booking intent' },
+              { icon: '🚨', name: 'Emergency Call Triage', desc: 'Burst pipe? No heat? Flags urgent keywords instantly and prioritizes the response.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto, priority flag on every email' },
+              { icon: '💰', name: 'Estimate Follow-Up', desc: 'Tracks every estimate you send. If no response comes in after 3 days, the system follows up with a check-in.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Runs daily at 10am' },
             ].filter(wf => wfFilter === 'All' || wf.tag === wfFilter).map((wf) => (
               <div key={wf.name} className="bg-charcoal-800 rounded-xl border border-charcoal-700 p-5 hover:border-stone-600 transition-colors">
                 <div className="flex items-start justify-between mb-3">
@@ -423,7 +434,7 @@ export default function App() {
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
               <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Week 1-4</p>
               <p className="text-white font-bold text-lg mb-3">Tightening Up</p>
-              <p className="text-stone-400 text-sm leading-relaxed">Every lead gets answered. Every estimate gets followed up. Missed calls get texted back. Your AI learns your scripts, your pricing, your scheduling patterns.</p>
+              <p className="text-stone-400 text-sm leading-relaxed">Every lead gets answered. Every estimate gets followed up. Missed calls get texted back. The system learns your scripts, pricing, and scheduling patterns.</p>
             </div>
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
               <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Month 2-3</p>
@@ -451,12 +462,12 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">TOOL SUITE</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight">
-            Grab and try free tools now.
+            Useful tools first. Managed systems next.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
             Every tool below is free to use right now. Start with the Audience Intelligence Engine to validate the market, then use the rest to tighten lead response, follow-up, and operations.
           </p>
-          <p className="mt-2 text-sm font-semibold text-rust-500">Your agents can customize these. Or build new ones from scratch.</p>
+          <p className="mt-2 text-sm font-semibold text-rust-500">Use the tools now. When we work together, we turn the best ideas into systems your team can actually run.</p>
 
           {/* Audience Intelligence Hero Card */}
           <div className="mt-10">
@@ -570,7 +581,7 @@ export default function App() {
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">Free Tool</span>
                   <h3 className="text-base font-bold text-onyx mt-0.5 mb-0.5">Review Request Generator</h3>
-                  <p className="text-xs text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your AI Foreman sends them automatically when jobs complete.</p>
+                  <p className="text-xs text-stone-600 leading-relaxed">Ready-to-send review request templates for text and email. Your MindVault system sends them automatically when jobs complete.</p>
                 </div>
               </div>
             </a>
@@ -648,58 +659,66 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── The Proof ── */}
+      {/* ── What Changes ── */}
       <section className="bg-sand-100">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">THE PROOF</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight mb-12">
-            Numbers don't lie.
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT CHANGES</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight mb-5 max-w-2xl">
+            Growth gets safer because the back office stops depending on memory and hustle.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">60s</p>
-              <p className="text-sm text-stone-600 mt-2">Average lead response time</p>
+          <p className="text-stone-600 max-w-2xl leading-relaxed mb-12">
+            This is the owner shift. The team works from a cleaner queue, the weak spots become visible, and growth feels calmer to handle.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl border border-sand-300 p-7">
+              <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Before</p>
+              <h3 className="text-2xl font-extrabold text-onyx mb-5">Held together by hustle</h3>
+              <ul className="space-y-3 text-sm text-stone-600 leading-relaxed">
+                <li>Follow-up depends on who remembered</li>
+                <li>The team is always catching up</li>
+                <li>Growth creates more mess</li>
+                <li>The owner has to chase everything down</li>
+              </ul>
             </div>
-            <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">24/7</p>
-              <p className="text-sm text-stone-600 mt-2">Coverage, nights and weekends</p>
-            </div>
-            <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">3x</p>
-              <p className="text-sm text-stone-600 mt-2">More leads converted to jobs</p>
-            </div>
-            <div className="text-center py-8 px-4 bg-white rounded-lg border border-sand-300">
-              <p className="text-4xl font-extrabold text-rust-500">90</p>
-              <p className="text-sm text-stone-600 mt-2">Day results guarantee</p>
+            <div className="bg-charcoal-900 rounded-2xl border border-charcoal-700 p-7">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">After</p>
+              <h3 className="text-2xl font-extrabold text-white mb-5">Built to handle growth</h3>
+              <ul className="space-y-3 text-sm text-stone-400 leading-relaxed">
+                <li>Leads get touched right away</li>
+                <li>The team works from a cleaner queue</li>
+                <li>Bottlenecks become visible</li>
+                <li>Growth gets safer without dropping quality</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Guarantee ── */}
-      <section className="bg-charcoal-900 text-white">
-        <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-rust-500 mb-6">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2" strokeLinecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-            90-Day Results Guarantee.
+      {/* ── Next Step ── */}
+      <section className="bg-charcoal-900 text-white border-t border-charcoal-700">
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">THE NEXT STEP</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5 text-center">
+            Start where the money is leaking first.
           </h2>
-          <p className="text-stone-400 max-w-lg mx-auto mb-6 leading-relaxed">
-            We build it. We run it. If after 90 days your Mind<span className="text-rust-500">Vault</span> system isn't saving you more than it costs, we fix it until it does. No long-term contracts. No fine print. If it doesn't work, you walk.
+          <p className="text-stone-400 max-w-2xl mx-auto text-center mb-12 leading-relaxed">
+            You do not need everything at once. You need the first win in the place where jobs are being lost today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
-            <div className="flex items-center gap-2 text-stone-300">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              No long-term contracts
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-charcoal-800 rounded-2xl border border-charcoal-700 p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">Step 1</p>
+              <h3 className="text-xl font-bold mb-3">Look at your current workflow</h3>
+              <p className="text-sm text-stone-400 leading-relaxed">How leads come in, where follow-up breaks, and what slows the path from inquiry to booked job.</p>
             </div>
-            <div className="flex items-center gap-2 text-stone-300">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Cancel anytime
+            <div className="bg-charcoal-800 rounded-2xl border border-charcoal-700 p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">Step 2</p>
+              <h3 className="text-xl font-bold mb-3">Find the first bottleneck</h3>
+              <p className="text-sm text-stone-400 leading-relaxed">We identify the place where money is leaking today, not the ten things that can wait.</p>
             </div>
-            <div className="flex items-center gap-2 text-stone-300">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c2703e" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Full setup included
+            <div className="bg-charcoal-800 rounded-2xl border border-charcoal-700 p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-3">Step 3</p>
+              <h3 className="text-xl font-bold mb-3">Build the first system around it</h3>
+              <p className="text-sm text-stone-400 leading-relaxed">Then we tighten it, measure it, and expand once the first win is working in the real world.</p>
             </div>
           </div>
         </div>

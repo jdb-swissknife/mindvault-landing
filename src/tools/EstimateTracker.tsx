@@ -30,14 +30,13 @@ function daysBetween(d1: string, d2: Date): number {
 }
 
 export default function EstimateTracker() {
-  const [estimates, setEstimates] = useState<Estimate[]>([])
+  const [estimates, setEstimates] = useState<Estimate[]>(() => loadEstimates())
   const [showForm, setShowForm] = useState(false)
   const [customer, setCustomer] = useState('')
   const [jobType, setJobType] = useState('')
   const [value, setValue] = useState('')
   const [dateSent, setDateSent] = useState(new Date().toISOString().split('T')[0])
 
-  useEffect(() => { setEstimates(loadEstimates()) }, [])
   useEffect(() => { window.scrollTo({ top: 0 }) }, [])
 
   const handleAdd = (e: React.FormEvent) => {
