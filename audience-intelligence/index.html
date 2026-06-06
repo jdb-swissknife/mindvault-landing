@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free MindVault Audience Intelligence Engine for entrepreneurs and founders who want to validate a market before building a business." />
+  <title>Audience Intelligence Engine | MindVault Studio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="shell nav-bar" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="MindVault Studio home">
+        <span class="brand-mark">✦</span>
+        <span>Mind<span>Vault</span> Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#workspace">Use the tool</a>
+        <a href="#report">Report template</a>
+      </div>
+    </nav>
+
+    <section id="top" class="shell hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Free startup research tool</p>
+        <h1>Before you build the business, learn what the market is already saying.</h1>
+        <p class="hero-lede">The Audience Intelligence Engine turns a niche idea into research prompts, a synthesis workflow, and a ready-to-use strategy report. Built for founders, creators, consultants, and service businesses validating what to sell, how to position it, and what customers actually care about.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#workspace">Start researching</a>
+          <a class="btn btn-light" href="#how-it-works">See how it works</a>
+        </div>
+        <div class="trust-row" aria-label="Tool benefits">
+          <span>Voice-of-customer research</span>
+          <span>Offer validation</span>
+          <span>Messaging angles</span>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="MindVault positioning">
+        <div class="hero-card-kicker">Powered by Mind<span class="text-rust-500">Vault</span> Studio</div>
+        <h2>Your AI Workforce, Managed.</h2>
+        <p>Use this free engine to find the language, pain, and buying signals hiding in public conversations. Then turn the research into landing pages, offers, content, and sales scripts.</p>
+        <div class="metric-grid">
+          <div><strong>5</strong><span>research angles</span></div>
+          <div><strong>25+</strong><span>platform prompts</span></div>
+          <div><strong>1</strong><span>report template</span></div>
+          <div><strong>0</strong><span>login required</span></div>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main class="shell main-shell">
+    <section id="how-it-works" class="marketing-grid">
+      <article class="marketing-card">
+        <span class="step-pill">01</span>
+        <h2>Pick a narrow audience</h2>
+        <p>Start with a specific market segment. “Roofing companies with 5–30 employees” will produce better research than “contractors.”</p>
+      </article>
+      <article class="marketing-card">
+        <span class="step-pill">02</span>
+        <h2>Mine real conversations</h2>
+        <p>Run platform-specific prompts across Reddit, LinkedIn, X, YouTube, and Quora to gather raw language, objections, and unmet needs.</p>
+      </article>
+      <article class="marketing-card">
+        <span class="step-pill">03</span>
+        <h2>Turn signals into strategy</h2>
+        <p>Use the master synthesis prompt and report template to convert messy research into positioning, hooks, content, and offer insights.</p>
+      </article>
+    </section>
+
+    <section class="card intro-card">
+      <div class="section-heading">
+        <p class="eyebrow">Why this matters</p>
+        <h2>Most businesses start with guesses. This starts with evidence.</h2>
+        <p>Use this as a standalone market validation tool before launching a business, offer, landing page, ad campaign, content channel, or client strategy project.</p>
+      </div>
+      <div class="intro-grid">
+        <div>
+          <h3>Best input</h3>
+          <ul class="bullet-list">
+            <li>Use a specific niche, not a broad category.</li>
+            <li>Example: “first-time HVAC business owners” beats “small business owners.”</li>
+            <li>Optional client, offer, and channel fields make exports more useful.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Try one of these</h3>
+          <div class="example-chips">
+            <button class="chip" type="button" data-example="people starting their first home service business">First home service business</button>
+            <button class="chip" type="button" data-example="roofing companies with 5-30 employees that want more qualified leads">Roofing companies</button>
+            <button class="chip" type="button" data-example="solo consultants packaging their first productized service">Productized consultants</button>
+            <button class="chip" type="button" data-example="B2B SaaS founders stuck below $1M ARR">B2B SaaS founders</button>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        Mind<span class="text-rust-500">Vault</span> rule: research real voice-of-customer language. Do not invent personas first and then force the data to fit them.
+      </div>
+    </section>
+
+    <section id="workspace" class="card control-card">
+      <div class="section-heading compact">
+        <p class="eyebrow">Research workspace</p>
+        <h2>Generate your audience intelligence prompt pack</h2>
+        <p>Set your niche and optional business context. Your workspace is saved locally in this browser.</p>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          <span>Business / client name</span>
+          <input id="clientInput" type="text" placeholder="Optional, e.g. North Star Roofing" />
+        </label>
+        <label>
+          <span>Offer / product idea</span>
+          <input id="offerInput" type="text" placeholder="Optional, e.g. AI-powered lead follow-up" />
+        </label>
+        <label>
+          <span>Primary channel</span>
+          <input id="channelInput" type="text" placeholder="Optional, e.g. landing page, cold email, YouTube" />
+        </label>
+        <label class="niche-field">
+          <span>Target niche / market</span>
+          <input id="nicheInput" type="text" placeholder="e.g. local service businesses trying to book more qualified calls" />
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button id="generateBtn" class="btn btn-primary" type="button">Generate prompts</button>
+        <button id="copyCurrentTabBtn" class="btn" type="button">Copy current tab</button>
+        <button id="exportPromptPackBtn" class="btn" type="button">Export prompt pack</button>
+        <button id="exportBriefBtn" class="btn" type="button">Export research brief</button>
+        <button id="resetBtn" class="btn btn-ghost" type="button">Reset session</button>
+      </div>
+
+      <div class="microcopy">No account required. Nothing is uploaded. The browser only saves your local workspace fields.</div>
+      <div id="loadStatus" class="load-status" aria-live="polite"></div>
+    </section>
+
+    <section class="card checklist-card">
+      <div class="section-heading compact">
+        <p class="eyebrow">Research quality</p>
+        <h2>Best results checklist</h2>
+      </div>
+      <div class="check-grid">
+        <div class="check-item"><strong>1</strong><span>Pick one narrow audience.</span></div>
+        <div class="check-item"><strong>2</strong><span>Pull actual posts, comments, and threads.</span></div>
+        <div class="check-item"><strong>3</strong><span>Save direct quotes, not just summaries.</span></div>
+        <div class="check-item"><strong>4</strong><span>Use the report template to synthesize patterns.</span></div>
+      </div>
+    </section>
+
+    <section id="engine" class="tabs-wrap">
+      <div id="tabs" class="tabs" role="tablist" aria-label="Audience research categories"></div>
+      <div id="panels"></div>
+    </section>
+
+    <section class="card master-card">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Synthesize</p>
+          <h2>Master synthesis prompt</h2>
+          <p>Use this after you gather raw source material.</p>
+        </div>
+        <div class="button-row compact-row">
+          <button id="copyMasterBtn" class="btn" type="button">Copy prompt</button>
+          <button id="exportMasterBtn" class="btn" type="button">Export prompt</button>
+        </div>
+      </div>
+      <pre id="masterPrompt" class="text-block"></pre>
+    </section>
+
+    <section id="report" class="card report-card">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Package the insight</p>
+          <h2>Audience report template</h2>
+          <p>Use this to turn raw research into a repeatable strategy deliverable.</p>
+        </div>
+        <div class="button-row compact-row">
+          <button id="copyReportBtn" class="btn" type="button">Copy template</button>
+          <button id="exportReportBtn" class="btn" type="button">Export template</button>
+        </div>
+      </div>
+      <pre id="reportTemplate" class="text-block"></pre>
+    </section>
+
+    <section class="card workflow-card">
+      <div class="section-heading compact">
+        <p class="eyebrow">Operator workflow</p>
+        <h2>From business idea to messaging system</h2>
+      </div>
+      <ol class="workflow-list">
+        <li>Set the niche and optional business context.</li>
+        <li>Run category prompts platform by platform.</li>
+        <li>Collect real quotes, threads, comments, reviews, and call notes.</li>
+        <li>Paste the raw material into the master synthesis prompt.</li>
+        <li>Use the report template to build messaging, offer, and content recommendations.</li>
+      </ol>
+    </section>
+
+    <section class="cta-band">
+      <div>
+        <p class="eyebrow">Want agents that do more than prompt?</p>
+        <h2>Mind<span class="text-rust-500">Vault</span> Studio builds privacy-first AI agents for real business workflows.</h2>
+        <p>Research, browser automation, reporting, follow-up, and operations agents. Designed to help owners get unstuck and get their mornings back.</p>
+      </div>
+      <a class="btn btn-primary" href="https://mindvaultstudio.net" target="_blank" rel="noopener">Visit Mind<span class="text-rust-500-on-dark">Vault</span> Studio</a>
+    </section>
+  </main>
+
+  <template id="panelTemplate">
+    <section class="card panel-card">
+      <div class="panel-header"></div>
+      <div class="platform-grid"></div>
+    </section>
+  </template>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -367,7 +367,11 @@
   const timeCtx = document.getElementById('timeCtx');
 
   // Wait for parent to tell us we're visible
+  let timelineStarted = false;
   function startTimeline() {
+    if (timelineStarted) return;
+    timelineStarted = true;
+
     setTimeout(() => { timeCtx.classList.add('visible'); }, 800);
 
     // Statement appears first
