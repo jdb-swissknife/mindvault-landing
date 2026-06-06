@@ -465,33 +465,12 @@ export default function App() {
             Useful tools first. Managed systems next.
           </h2>
           <p className="mt-3 text-stone-600 max-w-lg">
-            Every tool below is free to use right now. Start with the Audience Intelligence Engine to validate the market, then use the rest to tighten lead response, follow-up, and operations.
+            Every tool below is built for service businesses. Use them to tighten lead response, follow-up, reviews, booking, and operations.
           </p>
           <p className="mt-2 text-sm font-semibold text-rust-500">Use the tools now. When we work together, we turn the best ideas into systems your team can actually run.</p>
 
-          {/* Audience Intelligence Hero Card */}
-          <div className="mt-10">
-            <a href="/audience-intelligence/index.html"
-              className="group block bg-charcoal-900 rounded-2xl p-8 hover:bg-charcoal-800 transition-all hover:shadow-lg border border-rust-500/40">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-rust-500 flex items-center justify-center text-3xl">
-                  ✦
-                </div>
-                <div className="flex-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-rust-500 text-white text-xs font-bold uppercase tracking-wider mb-2">Featured Free Tool</span>
-                  <h3 className="text-2xl font-extrabold text-white mb-1">Audience Intelligence Engine</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed max-w-xl">Validate a business idea before you build. Find what your market already wants, fears, says, and buys from real public conversations.</p>
-                </div>
-                <div className="hidden sm:flex items-center text-rust-500 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                  Start researching
-                  <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </div>
-              </div>
-            </a>
-          </div>
-
           {/* Growth Scorecard Hero Card */}
-          <div className="mt-6">
+          <div className="mt-10">
             <a href={submitted ? "#/growth-scorecard" : "#lead-capture"} onClick={e => { if (!submitted) { e.preventDefault(); document.getElementById('lead-capture')?.scrollIntoView({ behavior: 'smooth' }) } }}
               className="group block bg-charcoal-900 rounded-2xl p-8 hover:bg-charcoal-800 transition-all hover:shadow-lg">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
@@ -629,7 +608,7 @@ export default function App() {
 
           {/* Email capture */}
           <div id="lead-capture" className="mt-10 max-w-md">
-            <p className="text-sm font-bold text-onyx mb-1">Unlock All 9 Tools Free</p>
+            <p className="text-sm font-bold text-onyx mb-1">Unlock All 8 Tools Free</p>
             <p className="text-xs text-stone-500 mb-3">Drop your email. Use every tool right now, no strings attached. See what Mind<span className="text-rust-500">Vault</span> is about before you ever talk to us.</p>
             {submitted ? (
               <div className="bg-charcoal-900 rounded-lg p-4 text-center">
@@ -650,7 +629,7 @@ export default function App() {
                   disabled={loading}
                   className="w-full py-3 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 disabled:opacity-50 transition-colors"
                 >
-                  {loading ? 'Sending...' : 'Unlock All 9 Tools Free'}
+                  {loading ? 'Sending...' : 'Unlock All 8 Tools Free'}
                 </button>
                 <p className="text-center text-xs text-stone-400">We respect your inbox. Unsubscribe anytime. <a href="/privacy" className="underline hover:text-stone-600">Privacy Policy</a></p>
               </form>
