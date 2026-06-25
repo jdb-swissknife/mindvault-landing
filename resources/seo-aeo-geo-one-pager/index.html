@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why AEO/GEO/SEO Matters Now -- MindVault Studio</title>
+<style>
+  @page { margin: 0; size: letter; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f3ee;
+    color: #1E293B;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #c2703e;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img { height: 36px; }
+  .brand-text {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #111111;
+  }
+  .brand-text .rust { color: #c2703e; }
+  .tagline {
+    font-size: 11px;
+    color: #78716c;
+    font-style: italic;
+  }
+  /* Title */
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: #111111;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #78716c;
+    margin-bottom: 28px;
+  }
+  /* Section */
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #111111;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    border-left: 4px solid #c2703e;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1E293B;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  p { font-size: 13px; margin-bottom: 8px; color: #44403c; }
+  /* Stat callout */
+  .stat-box {
+    background: #1c1c1c;
+    color: #f7f3ee;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+  .stat-box .big {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #c2703e;
+  }
+  .stat-box .label {
+    font-size: 12px;
+    color: #a8a29e;
+    margin-top: 4px;
+  }
+  /* Bullet list */
+  ul {
+    list-style: none;
+    margin: 8px 0 8px 0;
+  }
+  ul li {
+    font-size: 13px;
+    color: #44403c;
+    padding: 3px 0 3px 22px;
+    position: relative;
+  }
+  ul li::before {
+    content: "\2714";
+    color: #22C55E;
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+  }
+  /* Journey comparison */
+  .journey {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .journey-box {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  .journey-old {
+    background: #ede6db;
+    color: #57534e;
+  }
+  .journey-new {
+    background: #fdf2ec;
+    border-left: 4px solid #c2703e;
+    color: #1E293B;
+  }
+  .journey-label {
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  /* Layer cards */
+  .layer-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .layer-card h3 {
+    margin-top: 0;
+  }
+  .layer-num {
+    display: inline-block;
+    background: #c2703e;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  /* Timeline */
+  .timeline {
+    margin: 12px 0;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #e7ddd3;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-year {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #c2703e;
+    min-width: 75px;
+    flex-shrink: 0;
+  }
+  .timeline-text {
+    font-size: 12px;
+    color: #44403c;
+  }
+  /* Source preference grid */
+  .source-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .source-card {
+    background: #ede6db;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .source-card .engine {
+    font-weight: bold;
+    color: #111111;
+    margin-bottom: 4px;
+  }
+  .source-card .sources {
+    color: #57534e;
+  }
+  /* Closing CTA */
+  .cta-box {
+    background: #111111;
+    color: #f7f3ee;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 20px;
+    border-top: 3px solid #c2703e;
+  }
+  .cta-box p { color: #a8a29e; font-size: 13px; margin-bottom: 4px; }
+  .cta-box .cta-headline {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    color: #f7f3ee;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  /* Footer */
+  .footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e7ddd3;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111111;
+  }
+  .footer-brand .rust { color: #c2703e; }
+  .footer-info {
+    font-size: 11px;
+    color: #78716c;
+    margin-top: 4px;
+  }
+  .footer-quote {
+    font-style: italic;
+    font-size: 12px;
+    color: #c2703e;
+    margin-top: 8px;
+  }
+  @media print {
+    .page { padding: 30px; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="/logo.png" alt="MindVault Studio">
+      <div class="brand-text">Mind<span class="rust">Vault</span> Studio</div>
+    </div>
+    <div class="tagline">Your AI Workforce, Managed.</div>
+  </div>
+
+  <!-- Title -->
+  <h1>Why AEO / GEO / SEO Matters Now</h1>
+  <div class="subtitle">What every home service business needs to know about AI-driven search in 2026</div>
+
+  <!-- Stat callout -->
+  <div class="stat-box">
+    <div class="big">88%</div>
+    <div class="label">of businesses are invisible in ChatGPT. 77% of businesses ranking on Google page 1 don't show up in ChatGPT either.</div>
+  </div>
+
+  <!-- Customer Journey -->
+  <h2>The Customer Journey Has Changed</h2>
+  <ul>
+    <li>Homeowners increasingly use AI tools like ChatGPT to research service providers before calling</li>
+    <li>AI assistants compress the consideration set from several options to 3-5 recommendations</li>
+    <li>Most customers choose from the first 3-5 names they get back. They rarely ask for more options</li>
+    <li>AI-referred customers convert significantly higher than traditional search traffic</li>
+  </ul>
+
+  <div class="journey">
+    <div class="journey-box journey-old">
+      <div class="journey-label">Old Journey</div>
+      Search Google. Click around. Compare. Call 3 companies.
+    </div>
+    <div class="journey-box journey-new">
+      <div class="journey-label">New Journey</div>
+      Ask ChatGPT. Get 3 names back. Call one of them.
+    </div>
+  </div>
+
+  <p>If your business isn't one of the 3, you've lost the job before you knew the customer was looking.</p>
+
+  <!-- Layer 1 -->
+  <h2>The 3-Layer System for AI Citations</h2>
+
+  <div class="layer-card">
+    <h3><span class="layer-num">Layer 1</span>Retrieval: Can the engine see you at all?</h3>
+    <ul>
+      <li>ChatGPT matches Bing's top 10 results 87% of the time. Miss Bing page 1 and ChatGPT functionally can't see you</li>
+      <li>Google AI Overviews: 76.1% of cited URLs rank in the top 10 organic</li>
+      <li>Top 15 domains capture 68% of all AI citation share</li>
+      <li>Sites that lost rankings in Google's Jan 2026 update saw a 22% drop in AI citations across engines</li>
+    </ul>
+    <p><strong>Focus on:</strong> Top 20 on Google AND Bing for core local keywords ("roofing company [city]", "HVAC repair near me"). Answer-first paragraphs, FAQ schema, clear H2/H3 hierarchy. Original data and source citations lift AI visibility 30-40%.</p>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="layer-card">
+    <h3><span class="layer-num">Layer 2</span>Source Preference: What each engine pulls from</h3>
+    <div class="source-grid">
+      <div class="source-card">
+        <div class="engine">ChatGPT</div>
+        <div class="sources">47.9% Wikipedia. 11.3% Reddit. 6.8% Forbes</div>
+      </div>
+      <div class="source-card">
+        <div class="engine">Google AI Overviews</div>
+        <div class="sources">21.0% Reddit. 18.8% YouTube. 14.3% Quora</div>
+      </div>
+      <div class="source-card">
+        <div class="engine">Perplexity</div>
+        <div class="sources">46.7% Reddit. 13.9% YouTube. 7.0% Gartner</div>
+      </div>
+      <div class="source-card">
+        <div class="engine">Professional Queries</div>
+        <div class="sources">LinkedIn surged to #1 cited domain (Nov 2025 - Feb 2026)</div>
+      </div>
+    </div>
+    <p>A business that shows up in Perplexity may be completely invisible in ChatGPT.</p>
+  </div>
+
+  <!-- Layer 3 -->
+  <div class="layer-card">
+    <h3><span class="layer-num">Layer 3</span>Selection: What makes them pick you specifically</h3>
+    <ul>
+      <li><strong>Brand mentions:</strong> Unlinked mentions correlate with AI Overview citations at 3x the rate of backlinks</li>
+      <li><strong>Recency:</strong> Content older than 3 months drops sharply in AI citations</li>
+      <li><strong>Structure:</strong> Answer-first writing is often the difference between getting cited or not</li>
+    </ul>
+  </div>
+
+  <!-- Timeline -->
+  <h2>The Window Is Closing</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">End 2024</div>
+      <div class="timeline-text">Less than 10% of brands had any AI visibility strategy</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Q2 2026</div>
+      <div class="timeline-text">82% of brands are still completely invisible and don't know it</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">End 2026</div>
+      <div class="timeline-text">Gartner projects 25% of total search volume shifts to AI interfaces</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2028</div>
+      <div class="timeline-text">90% of buying will be AI-agent-intermediated, moving $15T in spend</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2029</div>
+      <div class="timeline-text">Companies will spend 5x more on LLM optimization than traditional SEO</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-headline">What This Means for You</div>
+    <p>Home service businesses rely on local, high-intent customers. AI is where those customers are increasingly starting their search. If you're not visible when they ask for recommendations, you're losing jobs before you even know they exist.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">Mind<span class="rust">Vault</span> Studio</div>
+    <div class="footer-info">mindvaultstudio.net | Minneapolis, MN | Serves Nationwide</div>
+    <div class="footer-quote">Your AI Workforce, Managed.</div>
+  </div>
+
+</div>
+</body>
+</html>
