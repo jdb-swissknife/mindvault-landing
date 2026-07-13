@@ -292,18 +292,21 @@ export default function App() {
       {/* ── What You Get (Value Stack) ── */}
       <section className="bg-sand-100 border-b border-sand-300">
         <div className="max-w-5xl mx-auto px-4 py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4">WHAT YOU GET WITH MIND<span className="text-rust-500">VAULT</span></p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-4">WHAT YOU GET WITH MIND<span className="text-rust-500">VAULT</span></p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-onyx tracking-tight max-w-2xl">
-            What the system handles from day one.
+            Start with one leak. Expand after it pays.
           </h2>
+          <p className="mt-4 text-stone-600 max-w-2xl leading-relaxed">
+            Mind<span className="text-rust-500">Vault</span> installs the first managed workflow, proves the value, then helps you add the next bottleneck. No mystery AI tool. Just revenue work getting handled.
+          </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-lg bg-rust-500 flex items-center justify-center shrink-0">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Instant Lead Response</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Every call, form fill, and text gets a fast response. Nights and weekends included. Do not lose a good lead to voicemail again.</p>
+                <h3 className="text-base font-bold text-onyx mb-1">Lead Capture &amp; Fast Response</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">New forms, calls, texts, and emails get captured, routed, and answered fast based on your rules. No more form fills sitting in an inbox while the homeowner calls the next company.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -311,8 +314,8 @@ export default function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Custom Follow-Up Sequences</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">5-step automated follow-ups built for your industry. Quotes get chased. Estimates get confirmed. No lead falls through the cracks, ever.</p>
+                <h3 className="text-base font-bold text-onyx mb-1">Estimate Follow-Up</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Open estimates get followed up before they go cold. Your team sees who is waiting, who needs a nudge, and which jobs are slipping.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -320,8 +323,8 @@ export default function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Real-Time Dashboard</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">See every lead, every response time, every booked job, and every handoff that still needs a human. Know what is moving and what is stuck.</p>
+                <h3 className="text-base font-bold text-onyx mb-1">Owner Revenue View</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">One dashboard shows what came in, what got handled, what is stuck, and what needs your approval next. You see the leak instead of hunting through reports.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -330,7 +333,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-onyx mb-1">Missed Call Text-Back</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Every missed call gets a fast text-back and a clean recovery path. A hot lead should not disappear because the team was busy.</p>
+                <p className="text-sm text-stone-600 leading-relaxed">Missed calls get a fast text-back and a clear next step, so a homeowner does not disappear just because the office was busy.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -338,8 +341,8 @@ export default function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Automated Review Collection</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">When jobs complete, the system sends review requests by text and email. Build your Google reputation while the team focuses on the next job.</p>
+                <h3 className="text-base font-bold text-onyx mb-1">Review Growth Loop</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Completed jobs trigger review requests, reminders, and tracking, so good work turns into visible trust without adding office work.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -347,8 +350,8 @@ export default function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div>
-                <h3 className="text-base font-bold text-onyx mb-1">Scheduling &amp; Booking</h3>
-                <p className="text-sm text-stone-600 leading-relaxed">Leads get booked directly onto your calendar. Estimates, follow-ups, and crew scheduling stay moving without the usual back-and-forth texts.</p>
+                <h3 className="text-base font-bold text-onyx mb-1">Scheduling Support</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">Booking requests get organized, qualified, and routed into your calendar process. Less back-and-forth. Fewer dropped appointments.</p>
               </div>
             </div>
           </div>
@@ -367,10 +370,10 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-rust-500 mb-4 text-center">READY-MADE WORKFLOWS</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight mb-4">
-            Start with the workflow where money is leaking first.
+            Start with the workflow where money is leaking.
           </h2>
           <p className="text-stone-400 text-center max-w-2xl mx-auto mb-6 leading-relaxed">
-            These are the common starting points. We install the first one, tighten it, then expand once the first win is working in the real world.
+            Most owners do not need ten workflows on day one. They need the first painful leak fixed, measured, and reported every week.
           </p>
           <div className="flex justify-center gap-3 mb-14 flex-wrap">
             {['All', 'Leads', 'Communication', 'Scheduling', 'Revenue'].map((cat) => (
@@ -382,15 +385,17 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: '⚡', name: 'Speed-to-Lead Response', desc: 'Replies to every new lead fast. Asks the right questions. Books the appointment.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Auto, responds to every new email' },
-              { icon: '🔁', name: 'Lead Follow-Up Sequence', desc: 'Cold leads get re-engaged automatically at Day 3, Day 7, Day 14. No lead falls through.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Runs 3x daily' },
-              { icon: '🌿', name: 'Dead Lead Revival', desc: 'Monthly campaign that breathes life into old leads with a fresh angle or seasonal offer.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Weekly, every Monday' },
-              { icon: '⭐', name: 'Review Request', desc: 'After every completed job, the system emails the customer with a direct Google review link.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
-              { icon: '📅', name: 'Appointment Reminders', desc: 'Sends 24-hour and 2-hour reminders. Reduces no-shows. Easy reschedule if needed.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Checks hourly' },
-              { icon: '💌', name: 'Post-Job Thank You', desc: 'Two hours after a job: thank you, next steps, and a gentle referral ask. Set it and forget it.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Triggered when job is marked done' },
-              { icon: '📆', name: 'Appointment Booking', desc: 'Detects when someone wants to schedule and proposes available times from your calendar.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto, detects booking intent' },
-              { icon: '🚨', name: 'Emergency Call Triage', desc: 'Burst pipe? No heat? Flags urgent keywords instantly and prioritizes the response.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Auto, priority flag on every email' },
-              { icon: '💰', name: 'Estimate Follow-Up', desc: 'Tracks every estimate you send. If no response comes in after 3 days, the system follows up with a check-in.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Runs daily at 10am' },
+              { icon: '☎️', name: 'Missed Call Text-Back', desc: 'Missed calls get a fast text-back and a clear next step, so the homeowner does not disappear while the office is busy.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'New missed call' },
+              { icon: '⚡', name: 'Speed-to-Lead Response', desc: 'Captures each new lead, asks the first qualifying questions, and gets them moving before they call a competitor.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'New form, call, text, or email' },
+              { icon: '💰', name: 'Estimate Follow-Up', desc: 'Open estimates are tracked until they close, stall, or need a human call. No more wondering which quotes went cold.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Daily open-estimate review' },
+              { icon: '🔁', name: 'Lead Follow-Up Sequence', desc: 'Stale leads get the right nudge at the right time. Your team sees who replied, who is quiet, and who needs a human call.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Runs daily against open leads' },
+              { icon: '🌿', name: 'Dead Lead Revival', desc: 'Old estimates and dormant leads get reviewed, segmented, and reactivated with a timely reason to come back.', tag: 'Leads', tagColor: 'bg-amber-900/60 text-amber-300', trigger: 'Weekly or monthly reactivation run' },
+              { icon: '📆', name: 'Appointment Booking', desc: 'Booking requests get qualified, matched to your availability rules, and pushed toward a confirmed next step.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Booking intent detected' },
+              { icon: '📅', name: 'Appointment Reminders', desc: 'Customers get clear reminders before appointments, and reschedule requests get routed before the schedule breaks.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: '24h and 2h before appointment' },
+              { icon: '⭐', name: 'Review Request', desc: 'Completed jobs trigger a review request, reminder, and owner-visible tracking so reputation work does not depend on memory.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'Job marked complete' },
+              { icon: '📊', name: 'Weekly Owner Brief', desc: 'Every week, you see what came in, what got handled, what is stuck, what revenue may be slipping, and what to do next.', tag: 'Revenue', tagColor: 'bg-green-900/60 text-green-300', trigger: 'Delivered every Friday' },
+              { icon: '🚨', name: 'Emergency Call Triage', desc: 'Urgent jobs get flagged fast so your team can separate emergency revenue from normal queue traffic.', tag: 'Scheduling', tagColor: 'bg-purple-900/60 text-purple-300', trigger: 'Urgent keyword or service type detected' },
+              { icon: '💌', name: 'Post-Job Thank You', desc: 'After the job, customers get a clean closeout message with next steps, review link, and referral prompt.', tag: 'Communication', tagColor: 'bg-blue-900/60 text-blue-300', trigger: 'After job completion' },
             ].filter(wf => wfFilter === 'All' || wf.tag === wfFilter).map((wf) => (
               <div key={wf.name} className="bg-charcoal-800 rounded-xl border border-charcoal-700 p-5 hover:border-stone-600 transition-colors">
                 <div className="flex items-start justify-between mb-3">
@@ -410,7 +415,7 @@ export default function App() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-stone-400 text-sm mb-6">These are just the starting point. Your Mind<span className="text-rust-500">Vault</span> system learns your business and adapts every workflow over time.</p>
+            <p className="text-stone-400 text-sm mb-6">These are starting points, not a feature buffet. We fix the first painful leak, prove it every week, then expand to the next obvious bottleneck.</p>
             <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-rust-500 text-white font-semibold text-sm hover:bg-rust-600 transition-colors">
               Book Your Discovery Call
@@ -428,23 +433,23 @@ export default function App() {
             Your Mind<span className="text-rust-500">Vault</span> system gets smarter every week.
           </h2>
           <p className="text-stone-400 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
-            Lead response is where we start. But the real compounding happens when your system starts learning how your business actually runs. The longer it runs, the tighter your operation gets.
+            We do not add ten workflows on day one. We prove the first one, report the value every week, then expand into the next obvious bottleneck.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
               <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Week 1-4</p>
-              <p className="text-white font-bold text-lg mb-3">Tightening Up</p>
-              <p className="text-stone-400 text-sm leading-relaxed">Every lead gets answered. Every estimate gets followed up. Missed calls get texted back. The system learns your scripts, pricing, and scheduling patterns.</p>
+              <p className="text-white font-bold text-lg mb-3">First Leak Fixed</p>
+              <p className="text-stone-400 text-sm leading-relaxed">We start where revenue is slipping now. Missed calls, slow replies, stale estimates, or review gaps. One managed workflow gets launched and measured.</p>
             </div>
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
               <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Month 2-3</p>
-              <p className="text-white font-bold text-lg mb-3">Spotting Bottlenecks</p>
-              <p className="text-stone-400 text-sm leading-relaxed">Your system starts seeing things you miss. Leads stalling at the same step. Jobs falling off after estimates. It flags the problems and suggests fixes.</p>
+              <p className="text-white font-bold text-lg mb-3">Weekly Proof</p>
+              <p className="text-stone-400 text-sm leading-relaxed">You see what came in, what got handled, what stalled, what needs approval, and where the next leak is showing up.</p>
             </div>
             <div className="bg-charcoal-800 rounded-lg p-6 border border-charcoal-700">
               <p className="text-rust-500 text-xs font-bold uppercase tracking-wider mb-1">Month 6+</p>
-              <p className="text-white font-bold text-lg mb-3">Running The Machine</p>
-              <p className="text-stone-400 text-sm leading-relaxed">Your Mind<span className="text-rust-500">Vault</span> system proposes new workflows, tests them, and iterates. Scheduling, marketing, customer retention, hiring. It designs ways to grow and proves they work before you spend a dollar.</p>
+              <p className="text-white font-bold text-lg mb-3">Next Pain Point</p>
+              <p className="text-stone-400 text-sm leading-relaxed">Once the first workflow is paying, Mind<span className="text-rust-500">Vault</span> helps add the next obvious revenue or operations bottleneck. No random feature stacking.</p>
             </div>
           </div>
           <div className="mt-12 text-center">
