@@ -144,10 +144,10 @@ export default function App() {
             <TypewriterText text="Growth Operating System for Service Businesses" />
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-3xl">
-            Grow without letting the back office break.
+            Turn Revenue Leaks Into Revenue Growth.
           </h1>
           <p className="mt-8 text-stone-400 max-w-2xl leading-relaxed">
-            Mind<span className="text-rust-500">Vault</span> helps service businesses answer faster, follow up on time, keep the calendar moving, and see where money is slipping through the cracks.
+            Mind<span className="text-rust-500">Vault</span> finds missed calls, stale estimates, and dropped follow-ups costing you money today. Then it learns your business so your current team can grow revenue without adding headcount.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://calendly.com/john-bird-mindvaultstudio/30min" target="_blank" rel="noopener noreferrer"
@@ -213,7 +213,7 @@ export default function App() {
             Most lost revenue does not come from bad service. It comes from dropped follow-up.
           </h2>
           <p className="mt-5 text-stone-600 max-w-2xl leading-relaxed">
-            The business grows, but the system behind it does not. That is when good demand starts turning into back office chaos.
+            The business grows, but the system behind it does not. That is when good demand starts slipping through the cracks.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
