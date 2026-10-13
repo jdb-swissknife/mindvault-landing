@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Share your honest experience working with MindVault Studio. You choose whether we may feature your testimonial on our website.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://qsutnjrqdkiwqounpdre.supabase.co; base-uri 'none'; object-src 'none'; form-action 'none'">
+  <title>Share your experience | MindVault Studio</title>
+  <link rel="canonical" href="https://trustmvs.com/review/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./review.css">
+  <script src="./config.js" defer></script>
+  <script src="./review.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to form</a>
+  <header class="header">
+    <a class="brand" href="/" aria-label="MindVault Studio home"><img src="/logo.png" alt="" width="44" height="44"><span>Mind<span class="vault">Vault</span> Studio</span></a>
+    <a class="back" href="/">Back to website <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR EXPERIENCE MATTERS</p>
+      <h1 id="page-title">Tell us what<br> working together<br> <em>was like.</em></h1>
+      <p class="lead">Thank you for trusting Mind<span class="vault">Vault</span> Studio with a part of your business. Your honest feedback helps us improve—and helps other owners understand what to expect.</p>
+      <div class="prompt">
+        <h2>A few ideas to get you started</h2>
+        <ul>
+          <li>What did you need help with?</li>
+          <li>What was it like working with us?</li>
+          <li>What changed, or what could we do better?</li>
+        </ul>
+        <p>A few sentences in your own words are perfect. All feedback is welcome.</p>
+      </div>
+      <p class="signature">Thank you,<br><strong>John Bird</strong><br>Mind<span class="vault">Vault</span> Studio</p>
+    </section>
+    <section class="card" aria-label="Share your feedback">
+      <form id="review-form">
+        <h2>Your experience, in your words</h2>
+        <p class="form-note">Required fields are marked <span aria-hidden="true">*</span>.</p>
+        <div class="field">
+          <label for="name">Your name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" autocomplete="name" maxlength="100" required>
+          <p class="hint">Use the name you would want displayed if you give permission below.</p>
+        </div>
+        <div class="field">
+          <label for="business">Business name <span class="optional">(optional)</span></label>
+          <input id="business" name="business" autocomplete="organization" maxlength="150">
+        </div>
+        <div class="field">
+          <label for="email">Email address <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="email-note">
+          <p class="hint" id="email-note">Private. Only used to verify or follow up on your feedback—not to subscribe you to marketing.</p>
+        </div>
+        <div class="field">
+          <label for="testimonial">What would you like to share? <span aria-hidden="true">*</span></label>
+          <textarea id="testimonial" name="testimonial" rows="6" minlength="20" maxlength="4000" required aria-describedby="testimonial-note"></textarea>
+          <p class="hint" id="testimonial-note">20–4,000 characters. Please leave out customer details, passwords, or other sensitive information.</p>
+        </div>
+        <div class="honeypot" aria-hidden="true">
+          <label for="website">Leave this field blank</label><input id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <fieldset class="permission">
+          <legend>May we feature your words?</legend>
+          <p>This is completely optional. Leaving this unchecked keeps your feedback private.</p>
+          <label class="check-label" for="permission">
+            <input id="permission" name="permission" type="checkbox">
+            <span>Yes, Mind<span class="vault">Vault</span> Studio may publish my testimonial on trustmvs.com, credited to the name and business I entered. My email will remain private. This does not include permission to use my photo or company logo. I can withdraw permission by emailing <a href="mailto:jb@trustmvs.com">jb@trustmvs.com</a>.</span>
+          </label>
+          <p class="hint">Nothing is posted automatically. We review every submission.</p>
+        </fieldset>
+        <p class="privacy-note">We store your feedback, contact details, and permission choice securely with our form provider, Supabase (U.S.). To request a copy, correction, deletion, or withdrawal of permission, email <a href="mailto:jb@trustmvs.com">jb@trustmvs.com</a>. <a href="/privacy.html">Privacy policy</a>.</p>
+        <div id="error" class="error" role="alert" tabindex="-1" hidden></div>
+        <button id="submit" type="submit" disabled>Send my feedback <span aria-hidden="true">→</span></button>
+        <p id="loading" class="hint">Loading the secure form…</p>
+        <noscript><p class="error">Please enable JavaScript to submit this form, or send your feedback to jb@trustmvs.com.</p></noscript>
+      </form>
+      <section id="success" class="success" tabindex="-1" aria-labelledby="success-title" hidden>
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">FEEDBACK RECEIVED</p>
+        <h2 id="success-title">Thank you for sharing.</h2>
+        <p>Your feedback has been saved for John to review.</p>
+        <p id="permission-summary"></p>
+        <p class="hint">Need to change something? Email <a href="mailto:jb@trustmvs.com">jb@trustmvs.com</a> and include your receipt below.</p>
+        <p class="receipt">Receipt: <span id="receipt"></span></p>
+        <a class="return-link" href="/">Return to our website →</a>
+      </section>
+    </section>
+  </main>
+  <footer>Mind<span class="vault">Vault</span> Studio · Clearer workflows. Fewer revenue leaks. More growth.</footer>
+</body>
+</html>
