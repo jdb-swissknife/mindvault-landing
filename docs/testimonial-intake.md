@@ -4,7 +4,7 @@
 
 https://trustmvs.com/review (redirects to /review/)
 
-Launched 2026-10-13 at JB's request. This is a first-party testimonial form, not a Google review form. The business currently operates entirely remotely; do not imply GBP eligibility or fabricate a Google review link.
+Launched 2026-10-13 at John's request. This is a first-party testimonial form, not a Google review form. The business currently operates entirely remotely; do not imply GBP eligibility or fabricate a Google review link.
 
 ## What happens
 
@@ -14,7 +14,7 @@ Launched 2026-10-13 at JB's request. This is a first-party testimonial form, not
 - Permission is only for trustmvs.com with the entered name/business, NOT email, logos, photos, ads, or social posts.
 - A successful submission returns a persisted UUID receipt. Network failures keep the entered text and do not claim success. Retrying an identical request is idempotent.
 - All submissions begin `pending_review`, including permission-on submissions. Nothing publishes automatically.
-- Names/emails are self-reported, not identity-verified. JB must verify authenticity before featuring a testimonial. Never publish test submissions.
+- Names/emails are self-reported, not identity-verified. John must verify authenticity before featuring a testimonial. Never publish test submissions.
 - Consent wording, version, boolean choice, and server timestamp are saved. Wording changes require matching frontend/backend version updates.
 - Withdrawal/deletion/contact address: jb@trustmvs.com. Removal from this website does not promise removal from third-party caches.
 
@@ -31,7 +31,7 @@ Launched 2026-10-13 at JB's request. This is a first-party testimonial form, not
 
 ## Owner access / manual review
 
-There is no email/Telegram notification automation or owner web-inbox UI in v1. Do not imply either exists. JB can ask Hermes to show the submitted testimonials. Hermes reads them using:
+There is no email/Telegram notification automation or owner web-inbox UI in v1. Do not imply either exists. John can ask Hermes to show the submitted testimonials. Hermes reads them using:
 
     python3 scripts/testimonial-admin.py list
 
@@ -46,7 +46,7 @@ https://supabase.com/dashboard/project/qsutnjrqdkiwqounpdre/sql/new
     where status <> 'test'
     order by created_at desc;
 
-Before publication: verify real customer identity, check permission is true and not withdrawn, get JB's approval, and preserve the customer's meaning. The current site does NOT render this table. Status changes alone cannot publish anything. Use a separate reviewed homepage change to feature an approved testimonial. If a customer asks to withdraw permission, remove any manually published copy and record the withdrawal privately.
+Before publication: verify real customer identity, check permission is true and not withdrawn, get John's approval, and preserve the customer's meaning. The current site does NOT render this table. Status changes alone cannot publish anything. Use a separate reviewed homepage change to feature an approved testimonial. If a customer asks to withdraw permission, remove any manually published copy and record the withdrawal privately.
 
 ## Reproducible tests
 
